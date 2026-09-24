@@ -4,7 +4,7 @@
 
 ## 启动
 
-先按[仓库根 README](../README.md)部署同级的 `laya-zh/`，然后从本目录运行：
+先按[安装说明](../docs/setup.md)部署同级的 `laya-zh/`，然后从本目录运行：
 
 ```sh
 ./start.sh
@@ -20,7 +20,7 @@
 | Jev | 通过 TypeSafe System One API 提出方向 | 配置仓库外的 `TYPESAFE_API_KEY` |
 | Kev | 通过本地 System One 兼容服务提出方向 | 外部 Kev 服务在 `127.0.0.1:8009` 加载 `kev-latest` |
 
-可以在启动前用 `SNAKE_LAYA_URL` 和 `SNAKE_KEV_URL` 改变本地服务地址；详情和 Kev 启动命令见[根 README](../README.md)。无论选择哪个模型，游戏仍使用 Laya tokenizer 校验输入长度，因此 `../laya-zh/model/tokenizer/` 必须存在。切换模型时以同一 seed 重新开局，方便对照。
+可以在启动前用 `SNAKE_LAYA_URL` 和 `SNAKE_KEV_URL` 改变本地服务地址；详情和 Kev 启动命令见[安装说明](../docs/setup.md)。无论选择哪个模型，游戏仍使用 Laya tokenizer 校验输入长度，因此 `../laya-zh/model/tokenizer/` 必须存在。切换模型时以同一 seed 重新开局，方便对照。
 
 ## 玩法与记录
 

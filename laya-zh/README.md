@@ -1,6 +1,6 @@
 # Laya 中文单模型本地部署
 
-本目录是 Laya 的本地 HTTP 服务封装，不是模型训练源码。它使用 `convaiinnovations/laya-multilingual`，不启用模型内置 Router，也不包含 English 或 typed-decisions 模型。权重不在 Git 中；首次部署时下载到本目录被忽略的 `model/`，之后推理不需要联网。游戏的整体安装顺序见[仓库根 README](../README.md)。
+本目录是 Laya 的本地 HTTP 服务封装，不是模型训练源码。它使用 `convaiinnovations/laya-multilingual`，不启用模型内置 Router，也不包含 English 或 typed-decisions 模型。权重不在 Git 中；首次部署时下载到本目录被忽略的 `model/`，之后推理不需要联网。游戏的整体安装顺序见[安装说明](../docs/setup.md)。
 
 Laya 的定位是本地或服务端调用的实时结构化决策中间件：输入 `state` 和 `questions`，输出 `choice`、`score`、`noul` 等判断结果，不是生成式聊天模型。本部署当前提供 loopback-only 的中文 HTTP 服务；应用场景、阈值用法和产品方向见 [APPLICATION_SCENARIOS.md](APPLICATION_SCENARIOS.md)。
 

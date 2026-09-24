@@ -1,106 +1,53 @@
-# Snake & Xiangqi
+# System One Model 在端上的实践
 
-两个本地网页游戏：十关贪吃蛇和中国象棋。两个游戏都可选 Laya、Jev 或 Kev 作决策；游戏规则、候选动作和安全校验由各自的游戏服务负责，模型只在这些候选中提出选择。
+从游戏开始，研究结构化决策模型怎样进入真实交互：应用提供状态和候选，模型作选择，确定性代码校验与执行，界面把每一步的责任说清楚。这里的 *System One* 指对 `state` 提出 `choice`、`score`、`noul` 等结构化问题并取得直接决策结果的接口形式，参见 [TypeSafe 官方 API 示例](https://docs.typesafe.ai/introduction/quickstart)。
 
-## 仓库结构
+本仓库接入三个模型：本地 Laya、远程 Jev、本地 Kev。标题里的“在端上”指游戏与 UI 的集成实践；**Jev 的推理发生在远程服务**。我们比较的是端上如何使用、约束和观察模型，不把不同部署方式写成模型能力排名。
 
-| 目录 | 用途 |
-| --- | --- |
-| [`snake/`](snake/) | 贪吃蛇网页、服务、规划器和测试；端口 `8766` |
-| [`xiangqi/`](xiangqi/) | 象棋网页、服务、残局和 Pikafish 引擎；端口 `8768` |
-| [`laya-zh/`](laya-zh/) | 本项目的 Laya HTTP 服务适配代码；端口 `8765` |
+## 游戏
 
-`laya-zh/` 是服务封装，**不是 Laya 模型的训练源码或权重**。Kev 的实现由独立的 [jaredpalmer/kev](https://github.com/jaredpalmer/kev) 仓库维护；本仓库只保留两个游戏的 Kev 客户端。两种模型的权重都不在 Git 中。
+两个游戏提供不同的决策节奏和验证条件：
 
-## 环境要求
+| 游戏 | 模型参与的位置 | 确定性边界 | 主要观察问题 |
+| --- | --- | --- | --- |
+| [贪吃蛇](snake/README.md) | 每步从安全候选方向中提议下一步；十关逐步增加拥挤程度 | 规划器检查蛇身、存活和已证路线；必要时直接执行或接管 | 高频调用的延迟、上下文预算、模型改选与规划器贡献 |
+| [象棋](xiangqi/README.md) | 从 Pikafish 提供的合法着法和 MultiPV 分支中选着 | 引擎检查合法性与评分；不满足等优条件的原选被守门 | 不同局面的候选判断、守门率、失败后的可重试性 |
 
-- macOS：仓库内的 Pikafish 可执行文件是 Mac 通用版本。其他系统需在 `xiangqi/engine/` 放置兼容的官方引擎和 `pikafish.nnue`。
-- Python 3.12 和 [`uv`](https://docs.astral.sh/uv/)；安装依赖及首次下载模型时需要网络。
-- Laya 是默认决策模型。贪吃蛇的输入预算检查也使用 Laya tokenizer，因此使用 Jev 或 Kev 玩贪吃蛇时仍需部署 `laya-zh/model/`。
+### 三种模型适合探索什么
 
-## 快速开始：Laya 与两个游戏
+| 模型 | 当前接入 | 适合验证的场景 | 不能据此推断 |
+| --- | --- | --- | --- |
+| [Laya](https://huggingface.co/convaiinnovations/laya-multilingual) | 本地部署的多语言模型，本项目用中文，默认选项 | 端侧推理、中文结构化决策，以及不希望逐步请求远端服务的交互 | 本地运行不等于每一步更快、更准；仍需测量加载、推理和回退成本 |
+| [Jev](https://docs.typesafe.ai/introduction/quickstart) | TypeSafe 托管 API | 网络可用时的远程参照，检验同一游戏输入下的模型原选与响应特征 | 网络耗时、调用成本和 tokenizer 与本地模型不同，不能只用总耗时给模型排位 |
+| [Kev](https://github.com/jaredpalmer/kev) | 外部开源实现的本地 `kev-0.8b` 服务 | 可检查实现和版本的本地对照，探索小模型的资源、校准与失败边界 | API 兼容不等于模型效果等价；本仓库尚无三者跨两个游戏的统一排名 |
 
-从仓库根目录执行。以下命令将 Laya 模型固定到已验证的 Hugging Face revision，下载到被 Git 忽略的 `laya-zh/model/`：
+这些是**实验用途与部署取舍**，不是已经证实的棋力或通关率结论。贪吃蛇支持固定种子的对照，象棋目前的[验收材料](xiangqi/validation/selfplay-checks.md)主要覆盖 Laya；跨模型结论需继续按同一输入和裁决规则收集证据。
 
-```sh
-cd laya-zh
-uv venv --python 3.12 .venv
-uv pip install --python .venv/bin/python -r requirements.txt
-.venv/bin/hf download convaiinnovations/laya-multilingual \
-  --revision 052592a15d198d9ad47da779604259b10b47b7aa \
-  --local-dir model
-shasum -a 256 -c checksums.sha256
-./start.sh
-cd ..
-curl http://127.0.0.1:8765/health
-```
+### 实践与治理
 
-服务报告 `"status":"ready"` 后，在另外的终端从仓库根目录启动游戏：
+1. **把建议和执行分开。** 同一步分别记录模型原选、规则校验、实际动作与接管原因。贪吃蛇的规划器、象棋的 Pikafish 都不能被算作模型自己的推理能力。
+2. **让比较条件可复现。** 贪吃蛇固定 seed、关卡与候选；象棋固定 FEN、行棋方、候选和引擎搜索预算。分别统计原选采纳率、守门率、失败率、延迟与整局结果，不用一次通关或胜负替代逐步评估。
+3. **明确不调用模型的步骤。** 唯一安全方向等确定性情形可以跳过模型，但须记录 `modelCalled=false`。比较调用量与正确率时把跳过、成功、失败和回退分开计算。
+4. **失败要有可见的语义。** 贪吃蛇在已有已验证路线时可记录规划器接管，模型在开局前不可用则拒绝创建该模型的游戏；象棋的模型请求失败会保留当前回合并返回可重试错误，不静默冒充模型落子。界面和日志都应显示这些差别。
+5. **版本、输入和置信度一起治理。** 固定模型 revision，记录输入预算与实际模型身份；跨 tokenizer 的 token 数不直接比较。概率或置信度只是模型输出，在本游戏局面上测量校准之前不作为自动执行阈值。
+6. **保护端上数据。** 密钥留在仓库外；Laya/Kev 权重、对局与运行日志不提交 Git。收集对照记录时保留必要的状态、候选和结果，并区分本地与远程请求。
 
-```sh
-cd snake
-./start.sh
-# http://127.0.0.1:8766
-```
+这套做法与 [NIST AI RMF 的测量与监控建议](https://airc.nist.gov/airmf-resources/playbook/measure/)一致：记录覆盖与干预，持续评估系统在实际场景中的行为。这里的具体阈值和策略仍由游戏实测决定。
 
-```sh
-cd xiangqi
-./start.sh
-# http://127.0.0.1:8768
-```
+## UI 交互
 
-`snake/start.sh` 会在默认地址没有 Laya 服务时尝试启动它；`xiangqi/start.sh` 需要先启动 Laya。服务只绑定本机回环地址。游戏细节见 [贪吃蛇说明](snake/README.md)和[象棋说明](xiangqi/README.md)。
+游戏界面是第一处交互实验：玩家可以切换模型、暂停或单步观察，并展开模型请求、原始响应、候选分支和最终执行。贪吃蛇区分模型建议与规划器接管；象棋显示模型原选、引擎守门和实际落子。展示“模型做了什么”也要展示“应用替它做了什么”，避免把守门后的结果归功于模型。
 
-## 可选模型
+下一步的 UI 课题是把同样的结构化判断用于提示优先级、操作建议或界面状态分流。它们**尚未在本仓库实现**；设计时应保持用户可覆盖、判断可撤回、主操作不被模型不可用阻塞，并先验证延迟与误判成本。
 
-| 模型 | 接入方式 | 配置与检查 |
-| --- | --- | --- |
-| Laya | 本地 `http://127.0.0.1:8765/v1/decide` | 启动 `laya-zh/start.sh`，通过 `/health` 检查 |
-| Kev 0.8B | 本地 `http://127.0.0.1:8009/v1/systemone` | 按下文启动独立 Kev 服务；游戏用 `/v1/models` 检查所加载的 run |
-| Jev | TypeSafe System One API | 设置 `TYPESAFE_API_KEY`，或把密钥放在仓库外的 `~/.config/jev-snake/typesafe_api_key`（权限 `600`） |
+## 其他
 
-可以在启动游戏前设置服务基础 URL，例如 `http://127.0.0.1:8009`：
+结构化决策还可能用于 Agent 路由和文档流程。`laya-zh/evaluation/` 有早期场景样例与评测说明，但它们不是已部署的产品能力，也不能替代真实任务数据上的标注、校准和回归。后续扩展会沿用游戏中已验证的边界：固定输入与候选、保留原始选择、记录干预、让失败可恢复。
 
-| 游戏 | Laya 地址 | Kev 地址 |
-| --- | --- | --- |
-| 贪吃蛇 | `SNAKE_LAYA_URL` | `SNAKE_KEV_URL` |
-| 象棋 | `XIANGQI_LAYA_URL` | `XIANGQI_KEV_URL` |
+## 运行与项目结构
 
-旧的 `LAYA_SNAKE_LAYA_URL`、`LAYA_SNAKE_KEV_URL`、`LAYA_XIANGQI_LAYA_URL` 仍兼容。更改地址后重启对应游戏服务。
+- [安装、模型下载与服务配置](docs/setup.md)：Laya、Kev、Jev 的接入步骤、地址变量、密钥和检查命令。
+- [贪吃蛇](snake/README.md) · [象棋](xiangqi/README.md)：各自的玩法、接口与验证。
+- [Laya 本地服务](laya-zh/README.md)：`laya-zh/` 是服务适配代码，模型权重另行下载；Kev 源码由[独立仓库](https://github.com/jaredpalmer/kev)维护。
 
-### 部署 Kev
-
-Kev 源码放在本仓库外的相邻目录。以下版本与本项目当前客户端验证过的 Kev-0.8B 配置一致；权重会下载到 Kev 目录的 `runtime/hf/`，不会进入本仓库。
-
-```sh
-git clone https://github.com/jaredpalmer/kev.git ../kev
-cd ../kev
-git checkout 557598fced1dada75dfbf36ed144dce309ac6ceb
-uv sync --extra serve --no-dev --python 3.12
-HF_HOME="$PWD/runtime/hf" HF_HUB_DISABLE_XET=1 \
-  .venv/bin/python -m kev.serve \
-  --run jaredpalmer/kev-0.8b@54f4f8777356cd5bbbb6c6919c657f26e6f2f6d8 \
-  --port 8009
-```
-
-在另一终端用 `curl http://127.0.0.1:8009/v1/models` 检查：`models` 中应有 `name=kev-latest`，且 `run` 以 `jaredpalmer/kev-0.8b@` 开头。然后在游戏网页的“决策模型”中选择 Kev。Kev 服务不需要 Jev API 密钥。
-
-Jev 只在选择它时需要密钥。不要把密钥写进代码、Git、游戏 URL 或示例配置文件。
-
-## 数据与许可
-
-Git 忽略 Laya/Kev 权重、虚拟环境、运行日志与对局存档。**克隆本仓库不会恢复原机器上的对局**；原机器的存档仍在各游戏的 `runtime/` 目录。象棋随仓库提供 Mac 版 Pikafish、NNUE 棋力文件及其[许可证](xiangqi/engine/NNUE-License.md)；使用前请阅读许可证。
-
-## 检查
-
-部署 Laya 依赖后，可从各游戏目录运行：
-
-```sh
-cd snake
-../laya-zh/.venv/bin/python -m unittest discover -s . -p 'test*.py'
-```
-
-```sh
-cd xiangqi
-../laya-zh/.venv/bin/python -m unittest discover -s . -p 'test*.py'
-```
+仓库保留 Mac 版 Pikafish 及其 [NNUE 许可证](xiangqi/engine/NNUE-License.md)。Laya、Kev 权重和对局存档均不在 Git 中；克隆后需要按安装文档部署模型，原机器的对局不会自动恢复。

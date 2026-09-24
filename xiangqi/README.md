@@ -26,7 +26,7 @@ cd xiangqi
 ./start.sh
 ```
 
-Jev 与 [贪吃蛇项目](../snake/README.md)共用**同一份密钥配置**：进程环境变量 `TYPESAFE_API_KEY` 优先，否则读取仓库外 `~/.config/jev-snake/typesafe_api_key`。不需要、也不应在象棋目录复制密钥。未配置时 Jev 新局会明确拒绝创建，Laya / Kev 棋局仍可使用。Jev 请求使用 `jev-latest`，远程网络耗时不计入 Pikafish 的搜索秒数。Kev 请求使用 `kev-latest`，只访问本机服务，不发送 API 密钥；`GET /api/health` 会探测 Kev 的 `/v1/models`，并校验已加载的 run 为 `jaredpalmer/kev-0.8b@...`。外部 Kev 服务的部署命令及 `XIANGQI_LAYA_URL`、`XIANGQI_KEV_URL` 配置见[仓库根 README](../README.md)。
+Jev 与 [贪吃蛇项目](../snake/README.md)共用**同一份密钥配置**：进程环境变量 `TYPESAFE_API_KEY` 优先，否则读取仓库外 `~/.config/jev-snake/typesafe_api_key`。不需要、也不应在象棋目录复制密钥。未配置时 Jev 新局会明确拒绝创建，Laya / Kev 棋局仍可使用。Jev 请求使用 `jev-latest`，远程网络耗时不计入 Pikafish 的搜索秒数。Kev 请求使用 `kev-latest`，只访问本机服务，不发送 API 密钥；`GET /api/health` 会探测 Kev 的 `/v1/models`，并校验已加载的 run 为 `jaredpalmer/kev-0.8b@...`。外部 Kev 服务的部署命令及 `XIANGQI_LAYA_URL`、`XIANGQI_KEV_URL` 配置见[安装说明](../docs/setup.md)。
 `GET /api/health` 中的 Jev `ready` 只表示本机依赖与密钥已配置，不检测远端连通性；Kev `ready` 会实际探测本机服务并核对已加载模型。真正的网络或推理失败会在本步日志和接口错误中说明。
 
 `start.sh` 会把 PID 和日志写入本目录的 `runtime/`，重复执行会复用已运行的进程；默认优先使用相邻 `laya-zh/.venv` 的 Python（包含 Jev 客户端所需的 `httpx`），缺失时回退到系统 Python。缺少官方引擎时，`server.py` 会通过 GitHub Releases API 查找最新官方 `.7z` 包并解压；已存在的引擎不会重复下载。也可以直接运行前台服务；需要 Jev 时请选择有 `httpx` 的 Python：
