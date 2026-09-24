@@ -30,7 +30,7 @@
 
 真实 sessions 集应与本目录的合成集分开报告：合成集用于覆盖边界和回归，sessions 集用于衡量真实分布上的路由准确率、角色覆盖率和阈值可靠性。
 
-最近半年 443 条本地 sessions 的合并、标签分布和 Laya 多标签评测见 [sessions_6m/README.md](sessions_6m/README.md)。该评测只发送脱敏 `input_text` 与固定六角色问题；推荐角色来自三片互斥数据的 blind single-annotator silver labels，历史实际角色只作对照。
+最近半年 443 条本地 sessions 的评测数据与报告未随游戏仓库提交。该批评测只发送脱敏 `input_text` 与固定六角色问题；推荐角色来自三片互斥数据的 blind single-annotator silver labels，历史实际角色只作对照。
 
 ## 运行
 
@@ -50,7 +50,7 @@
 先确保本地服务已启动：
 
 ~~~sh
-cd /Users/jt/places/personal/kn/jev/deliverables/laya-zh
+cd laya-zh
 ./start.sh
 ~~~
 

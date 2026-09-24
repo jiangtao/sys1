@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import urllib.error
 import urllib.request
 from typing import Any, Mapping
@@ -40,8 +41,8 @@ class KevClient:
     provider_name = "kev"
     provider_label = "Kev"
 
-    def __init__(self, base_url: str = KEV_BASE_URL, timeout: float = DEFAULT_TIMEOUT_SECONDS) -> None:
-        base_url = base_url.rstrip("/")
+    def __init__(self, base_url: str | None = None, timeout: float = DEFAULT_TIMEOUT_SECONDS) -> None:
+        base_url = (base_url or os.environ.get("XIANGQI_KEV_URL") or KEV_BASE_URL).rstrip("/")
         self.base_url = base_url
         self.endpoint = f"{base_url}/v1/systemone"
         self.models_endpoint = f"{base_url}/v1/models"

@@ -1,6 +1,6 @@
 # Laya 中文单模型本地部署
 
-本目录只使用 `convaiinnovations/laya-multilingual`，不启用模型内置 Router，也不包含 English 或 typed-decisions 模型。模型保存在本目录的 `model/` 下，运行时不需要联网。Codex 的旁路路由实验由独立客户端完成，不改变本服务协议或实际 Agent 派发。
+本目录是 Laya 的本地 HTTP 服务封装，不是模型训练源码。它使用 `convaiinnovations/laya-multilingual`，不启用模型内置 Router，也不包含 English 或 typed-decisions 模型。权重不在 Git 中；首次部署时下载到本目录被忽略的 `model/`，之后推理不需要联网。游戏的整体安装顺序见[仓库根 README](../README.md)。
 
 Laya 的定位是本地或服务端调用的实时结构化决策中间件：输入 `state` 和 `questions`，输出 `choice`、`score`、`noul` 等判断结果，不是生成式聊天模型。本部署当前提供 loopback-only 的中文 HTTP 服务；应用场景、阈值用法和产品方向见 [APPLICATION_SCENARIOS.md](APPLICATION_SCENARIOS.md)。
 
@@ -10,10 +10,10 @@ Laya 的定位是本地或服务端调用的实时结构化决策中间件：输
 shasum -a 256 -c checksums.sha256
 ```
 
-## 当前部署状态
+## 已验证环境
 
 - Python 3.12、Laya 0.3.4、PyTorch 2.11.0、Transformers 5.17.0
-- `.venv/` 约 568 MB，`model/` 约 658 MB，目录合计约 1.2 GB
+- 原机器的 `.venv/` 约 568 MB，`model/` 约 658 MB；新克隆需要重新创建
 - 已在 Apple M2 Pro 上以 MPS 跑通中文 `choice`、`score` 和 `noul`
 - 已设置离线模式复跑通过，推理阶段不依赖 Hugging Face 网络
 
@@ -22,18 +22,21 @@ shasum -a 256 -c checksums.sha256
 - [评测总说明](evaluation/README.md)
 - [48 条合成业务场景报告](evaluation/results/REPORT.md)
 - [20 条脱敏本地 sessions Agent 调度报告](evaluation/sessions/results/REPORT.md)
-- [最近半年 443 条典型 sessions 调度报告](evaluation/sessions_6m/results/REPORT.md)
 - [公开中文数据集候选与许可证边界](evaluation/PUBLIC_DATASETS.md)
 
 当前评测仅用于判断方向和发现误差，不是生产精度承诺。尤其是 Agent 多标签调度和概率阈值，现阶段仍需要业务微调、温度校准和更大规模人工复核数据。
 
 ## 环境
 
-当前已在项目内的 `.venv/` 安装锁定依赖。需要重建时，在本目录执行：
+从新克隆部署时，在本目录执行：
 
 ```sh
-uv venv --python /opt/homebrew/bin/python3.12 .venv
+uv venv --python 3.12 .venv
 uv pip install --python .venv/bin/python -r requirements.txt
+.venv/bin/hf download convaiinnovations/laya-multilingual \
+  --revision 052592a15d198d9ad47da779604259b10b47b7aa \
+  --local-dir model
+shasum -a 256 -c checksums.sha256
 ```
 
 `requirements.txt` 是由 `requirements.in` 编译得到的锁定依赖清单；若需重新解析依赖，可执行：

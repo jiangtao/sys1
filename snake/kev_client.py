@@ -16,7 +16,8 @@ except ImportError:  # Running ``python kev_client.py`` from this directory.
 
 
 DEFAULT_KEV_URL = "http://127.0.0.1:8009"
-KEV_URL_ENV = "LAYA_SNAKE_KEV_URL"
+KEV_URL_ENV = "SNAKE_KEV_URL"
+LEGACY_KEV_URL_ENV = "LAYA_SNAKE_KEV_URL"
 KEV_MODEL_NAME = "kev-latest"
 EXPECTED_KEV_RUN_PREFIX = "jaredpalmer/kev-0.8b@"
 DEFAULT_TIMEOUT_SECONDS = 25.0
@@ -33,7 +34,7 @@ class KevClient:
     provider_label = "Kev"
 
     def __init__(self, base_url: str | None = None, timeout: float = DEFAULT_TIMEOUT_SECONDS) -> None:
-        configured_url = base_url or os.environ.get(KEV_URL_ENV, DEFAULT_KEV_URL)
+        configured_url = base_url or os.environ.get(KEV_URL_ENV) or os.environ.get(LEGACY_KEV_URL_ENV) or DEFAULT_KEV_URL
         self.base_url = configured_url.rstrip("/")
         self.timeout = timeout
 

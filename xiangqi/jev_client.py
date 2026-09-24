@@ -1,6 +1,6 @@
 """Optional TypeSafe Jev client for the local Xiangqi service.
 
-The key and endpoint deliberately match ``deliverables/laya-snake``.  The
+The key and endpoint deliberately match ``snake``.  The
 dependency is optional so the normal Laya/Pikafish service can still start on
 the system Python used by the local app.
 """

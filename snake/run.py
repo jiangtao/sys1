@@ -1,6 +1,7 @@
 """Run the game and, if needed, its existing local Laya model service."""
 
 import json
+import os
 import signal
 import subprocess
 import sys
@@ -10,6 +11,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+DEFAULT_LAYA_URL = "http://127.0.0.1:8765"
 children = []
 
 
@@ -42,14 +44,17 @@ def main():
         if health("http://127.0.0.1:8766/api/health"):
             print("游戏已运行：http://127.0.0.1:8766", flush=True)
             return
-        model = health("http://127.0.0.1:8765/health")
+        laya_url = (os.environ.get("SNAKE_LAYA_URL") or os.environ.get("LAYA_SNAKE_LAYA_URL") or DEFAULT_LAYA_URL).rstrip("/")
+        model = health(f"{laya_url}/health")
         if not model or model.get("status") != "ready":
+            if laya_url != DEFAULT_LAYA_URL:
+                raise RuntimeError(f"Laya 服务未就绪：{laya_url}")
             server = ROOT.parent / "laya-zh" / "server.py"
             child = subprocess.Popen([sys.executable, str(server), "--host", "127.0.0.1", "--port", "8765"], cwd=server.parent)
             children.append(child)
             print("正在加载本地 Laya…", flush=True)
             for _ in range(90):
-                model = health("http://127.0.0.1:8765/health")
+                model = health(f"{laya_url}/health")
                 if model and model.get("status") == "ready":
                     break
                 if child.poll() is not None:
