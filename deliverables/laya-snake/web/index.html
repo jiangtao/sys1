@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>if (location.protocol === 'file:') location.replace('http://127.0.0.1:8766/');</script>
+  <meta name="theme-color" content="#090c0c"><title>LAYA / SNAKE LAB</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23b5f268'/%3E%3Cpath d='M8 20h10a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8' fill='none' stroke='%2316200d' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Snake Lab"><span class="brand-icon">⌁</span><span><span id="brand-model">LAYA</span><span class="brand-divider">/</span><b>SNAKE LAB</b></span><span class="version">01</span></a>
+      <div class="top-right"><span class="model-badge"><i id="connection-dot"></i><span id="connection">连接模型中</span></span><span class="local-label">MODEL COMPARISON</span></div>
+    </header>
+    <section class="intro"><h1><span id="intro-model">Laya</span> <em>自主闯关</em></h1><p>空间越来越小，走位越来越精彩。</p><span class="intro-chip" id="challenge-count">10 关挑战</span></section>
+    <main class="workspace">
+      <section class="arena-panel">
+        <div class="arena-toolbar"><div class="section-title"><span class="live-dot"></span><span id="game-summary">贪吃蛇</span><span id="arena-size">14 × 14</span></div><div id="run-status" class="status-pill">准备中</div></div>
+        <div class="vitals-bar"><div class="vital health-vital"><span>♥ 生命 <b id="health-text">100 / 100</b></span><div class="vital-track"><i id="health-fill"></i></div></div><div class="vital energy-vital"><span>◆ 能量 <b id="stamina-text">100 / 100</b></span><div class="vital-track"><i id="stamina-fill"></i></div></div><span class="penalty-rule" title="每次模型提出经证明比当前目标最短路线更长的方向，扣5生命、10能量；血量归零判负。未知最优性不扣罚。">绕路 −5 血 / −10 能量</span></div>
+        <div class="stats"><div><span>当前关卡 <small>LEVEL</small></span><strong><b id="level">01</b><i id="total-levels">/ 10</i></strong></div><div><span>能量收集 <small>ENERGY</small></span><strong><b id="energy">00</b><i id="target">/ 04</i></strong></div><div><span>决策次数 <small>DECISIONS</small></span><strong id="steps">0000</strong></div><div><span>模型耗时 <small>LATENCY</small></span><strong><b id="latency">—</b><i>ms</i></strong></div></div>
+        <div class="board-wrap"><div class="board-corner tl"></div><div class="board-corner tr"></div><div class="board-corner bl"></div><div class="board-corner br"></div><canvas id="board" aria-label="自动贪吃蛇实时棋盘" role="img"></canvas><div class="board-watermark" id="board-watermark">LAYA // NEURAL PLAYFIELD</div><div id="board-overlay" class="board-overlay" hidden><div class="overlay-symbol">✦</div><span id="overlay-kicker">PROTOCOL COMPLETE</span><h2 id="overlay-title">五关，全数突破。</h2><p id="overlay-detail"></p></div><div id="level-toast" class="level-toast" hidden></div></div>
+        <div class="board-legend"><div><span><i class="legend-snake"></i><span id="legend-model">LAYA</span></span><span><i class="legend-food"></i>能量点</span><span><i class="legend-path"></i>安全候选</span></div><span id="coordinates">X 00 : Y 00</span></div>
+          <div class="controls"><button id="toggle" class="primary" disabled><span id="play-icon">Ⅱ</span><span id="play-label">暂停运行</span></button><button id="step" class="secondary" disabled><span>↳</span> 单步决策</button><button id="restart" class="icon-button" title="重新开始" aria-label="重新开始" disabled>↻</button><div class="model-control"><label for="model">决策模型</label><select id="model" title="切换模型后使用相同种子重新开始"><option value="laya" selected>Laya</option><option value="jev">Jev</option><option value="kev">Kev 0.8B</option></select></div><div class="speed-control"><label for="speed">播放倍率</label><select id="speed" title="极速：模型返回后立即执行下一步，不加播放等待"><option value="1">1×</option><option value="2">2×</option><option value="4">4×</option><option value="8">8×</option><option value="max" selected>极速</option></select></div></div>
+        <div id="message" class="message" role="status">正在检查本地模型…</div>
+      </section>
+      <aside class="decision-panel">
+        <div class="log-header"><h2>决策战报<span id="log-count">0</span></h2><button id="export" class="export-button" title="导出完整决策日志" aria-label="导出完整决策日志">↓</button></div>
+        <div class="run-metrics"><span><span id="metric-one-label">模型决策</span> <b id="safe-total">0 步</b></span><span><span id="metric-two-label">受罚决策</span> <b id="saved-total">0 次</b></span><span><span id="metric-three-label">已收集</span> <b id="route-rate">0</b></span></div>
+        <div class="thinking-strip"><span class="wave"><i></i><i></i><i></i><i></i></span><span id="thinking-label">等待模型连接</span><span id="thinking-time"></span></div>
+        <div id="live-decision" class="live-decision"><div class="live-caption"><span id="planner-phase">最新一步</span><span id="live-step">WAITING</span></div><h3 id="live-headline">Laya 即将出发</h3><div id="optimality-note" class="optimality-note" hidden></div><div id="proposal-comparison" class="proposal-comparison"></div><div id="context-note" class="context-note" hidden></div><p id="live-explanation">每个方向好在哪里、危险在哪里，一眼看清。</p><div id="choice-comparison" class="choice-comparison"></div><div id="distance-change" class="distance-change"></div></div>
+        <div class="log-tabs"><button data-filter="events">精彩瞬间</button><button class="active" data-filter="all">每步记录</button><span><i></i> LIVE</span></div>
+        <div id="logs" class="logs" tabindex="0" aria-label="每一步的决策日志"><div class="empty-log"><span>⌁</span><strong>等待第一个精彩走位</strong><p>抄近路、吃能量、闯下一关<br>每次突破都会记在这里。</p></div></div>
+        <div class="log-footer"><span>●</span> Laya 决定动作 · 模拟指标用于判断<small>全部步骤和原始模型输出都可展开、导出</small></div>
+      </aside>
+    </main>
+    <section class="progression"><div class="progression-title"><h2>关卡</h2></div><div class="levels" id="levels"></div></section>
+    <footer><span>LAYA MULTILINGUAL <i>×</i> SNAKE LAB</span><span>模型选方向 · 安全约束筛选候选 · 不伪造推理</span><span>BUILT TO THINK. BORN TO PLAY.</span></footer>
+  </div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

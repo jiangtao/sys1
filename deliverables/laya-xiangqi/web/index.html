@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2eb">
+  <title>弈境 · 象棋对弈</title>
+  <script>
+    if (location.protocol === 'file:') location.replace('http://127.0.0.1:8768/');
+  </script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./observatory.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <a href="/" class="brand" aria-label="弈境首页"><span class="seal">弈</span><span class="brand-name">弈境<span>LAYA / JEV / KEV XIANGQI</span></span></a>
+      <nav aria-label="对局模式"><button id="mode-standard" class="nav-button active">人机对弈</button><button id="mode-selfplay" class="nav-button">模型自对弈</button><button id="mode-duel" class="nav-button">Jev × Laya <span>NEW</span></button><button id="open-puzzles" class="nav-button">选择残局 <span>10</span></button></nav>
+      <div class="connection"><i id="connection-dot"></i><span id="connection-text">正在连接本地模型</span></div>
+    </header>
+
+    <section class="intro">
+      <div><p class="eyebrow">A BOARD. TWO MINDS. EVERY DECISION.</p><h1>观棋，<span>也观其思路。</span></h1><p class="intro-description" id="mode-description">执红挑战模型，逐步对照原选与实际落子。</p></div>
+      <div class="intro-aside"><span class="tiny-seal">弈</span><div><strong id="match-mode">人机对弈</strong><span id="model-credit">Laya 选招 · Pikafish 评估与守门</span></div></div>
+    </section>
+
+    <main class="workspace">
+      <section class="arena" aria-label="象棋对弈区">
+        <div class="arena-heading"><div><span class="section-index">01 /</span><h2 id="game-title">标准对局</h2><span class="game-tag" id="game-tag">红先黑后</span></div><div class="arena-tools"><button id="choose-position" class="text-button">换个残局 ↗</button><button id="flip" class="text-button" title="翻转棋盘">⇅ <span>翻转</span></button></div></div>
+        <button id="return-live" class="preview-return" hidden>↩ 返回实际棋局</button>
+        <div class="arena-main">
+          <div class="player player-black"><div class="player-info"><span class="avatar dark" id="black-avatar">L</span><div><strong><span id="black-name">LAYA · 黑方</span> <span class="ai-badge">AI</span></strong><small id="opponent-detail">全力搜索 · 不设棋力降档</small></div></div><span id="black-status" class="turn-label">执黑</span></div>
+          <div class="board-shell"><div class="board-border"><svg id="board" viewBox="0 0 540 600" role="group" aria-label="象棋棋盘，红方在下。点击棋子再点击落点。"></svg></div><div id="result-overlay" class="result-overlay" hidden><span class="eyebrow">THE GAME IS COMPLETE</span><h2 id="result-title"></h2><p id="result-detail"></p><button id="play-again" class="primary-button">再战一局 <span>↗</span></button><button id="review-result" class="secondary-button">查看终局与裁决依据</button></div></div>
+          <div class="player player-red"><div class="player-info"><span class="avatar red" id="red-avatar">帅</span><div><strong id="red-name">你 · 红方</strong><small id="player-detail">选择红方棋子，开始你的第一步</small></div></div><span id="red-status" class="turn-label active">轮到你了 <i></i></span></div>
+        </div>
+        <div id="selfplay-controls" class="selfplay-controls" hidden><button id="auto-play" class="primary-button">▶ 开始自对弈</button><button id="single-step" class="secondary-button">↳ 单步决策</button><button id="swap-sides" class="secondary-button" hidden title="换边后以相同残局重新开局">⇄ 红黑换边</button><span id="auto-status">准备就绪 · 红方先行</span></div>
+        <div class="arena-controls"><div><button id="restart" class="secondary-button">↻ <span>重新开局</span></button><button id="undo" class="secondary-button">↶ <span>悔棋</span></button><button id="retry" class="secondary-button" hidden>重试模型决策</button></div><div class="arena-settings"><label class="search-control" for="decision-model" id="decision-model-label">决策模型<select id="decision-model" title="切换模型会按当前残局和对局模式新建一局；混合对弈时此处指定红方。"><option value="laya">Laya · 本地</option><option value="jev">Jev · 远程</option><option value="kev">Kev 0.8B</option></select></label><label class="search-control" for="opponent-model" id="opponent-model-label" hidden>黑方模型<select id="opponent-model" title="duel 模式下指定黑方模型；不能与红方相同。"><option value="laya">Laya · 本地</option><option value="jev">Jev · 远程</option><option value="kev">Kev 0.8B</option></select></label><label class="search-control" for="think-time">每步搜索<select id="think-time" title="极速模式缩短搜索深度；需要更强分析可切深算。时限不含模型推理，设置自动保存。"><option value="0.3" selected>0.3 秒 · 极速</option><option value="0.6">0.6 秒 · 快速</option><option value="1">1 秒 · 快棋</option><option value="2">2 秒 · 均衡</option><option value="8">8 秒 · 深算</option><option value="15">15 秒 · 极限</option></select></label></div></div>
+        <div id="message" class="message" role="status" aria-live="polite">正在准备棋局…</div>
+      </section>
+
+      <aside class="decision-panel" aria-label="决策日志">
+        <div class="decision-heading"><div><p class="eyebrow">OBSERVE THE DECISION</p><h2>决策路径<span id="log-count">00</span></h2></div><div class="model-connection"><span id="model-detail">本地 Laya</span><button id="export" class="export-button" aria-label="导出完整决策日志" title="导出 JSON 决策日志">↗</button></div></div>
+        <div class="decision-scoreboard" id="decision-scoreboard" aria-label="双方决策效果"></div>
+        <div class="evaluation-strip"><span>局面走势 <small>红方视角</small></span><svg id="evaluation-chart" viewBox="0 0 280 42" role="img" aria-label="局面评分随落子变化"></svg><strong id="evaluation-value">—</strong></div>
+        <div id="adjudication-note" class="adjudication-note" hidden role="status"></div>
+        <div class="log-toolbar"><div role="group" aria-label="日志筛选"><button class="log-filter active" data-filter="tree">决策树</button><button class="log-filter" data-filter="all">落子日志</button><button class="log-filter" data-filter="laya">模型记录</button></div><label class="side-filter-label" for="decision-side"><select id="decision-side" aria-label="筛选决策方"><option value="all">双方</option><option value="red">红方</option><option value="black">黑方</option></select></label></div>
+        <div class="search-progress" id="search-progress" hidden><span class="thinking-orbit">✳</span><div><strong id="thinking-title">模型正在推演攻势</strong><small id="thinking-detail">搜索候选着法，校验战术…</small></div><span id="thinking-elapsed">0.0s</span></div>
+        <div id="logs" class="logs" tabindex="0" aria-label="逐步决策记录"><div class="empty-log"><div class="empty-board">弈</div><h3>棋局未动，思路先行。</h3><p>走出第一步，看看模型如何应对。<br>着法、评估与模型输出将在这里逐一记录。</p><span>YOUR MOVE. ITS RESPONSE.</span></div></div>
+        <div id="decision-tree" class="tree-panel" hidden aria-label="实际搜索决策树"></div>
+        <div class="log-bottom"><span>ⓘ</span><p>原选来自当前模型，候选评分来自 Pikafish。守门可能改写最终落子；这些指标用于对照决策，不代表模型独立棋力。</p></div>
+      </aside>
+    </main>
+
+    <footer><span>弈境 <i>×</i> LAYA / JEV</span><span id="position-note">棋盘与决策同步记录 · 暂停后可逐步复盘</span><span>长将判负 · 普通重复可和</span></footer>
+  </div>
+  <dialog id="puzzle-dialog" aria-labelledby="puzzle-dialog-title">
+    <div class="puzzle-dialog-heading"><div><p class="eyebrow">POSITIONS WORTH THINKING ABOUT</p><h2 id="puzzle-dialog-title">选择一个值得推敲的局面</h2><p>更复杂的攻守、更接近的子力。从实战型残局观察模型的选择。</p></div><button id="close-puzzles" class="export-button" aria-label="关闭残局选择">×</button></div>
+    <div class="puzzle-dialog-controls"><div id="difficulty-filters" role="group" aria-label="难度筛选"><button class="difficulty-filter active" data-difficulty="all">全部残局</button><button class="difficulty-filter" data-difficulty="进阶">进阶</button><button class="difficulty-filter" data-difficulty="挑战">挑战</button><button class="difficulty-filter" data-difficulty="高手">高手</button></div><button id="standard-position" class="secondary-button">标准开局 ↗</button></div>
+    <div class="puzzle-dialog-body"><div id="puzzle-list" class="puzzle-list"></div><div class="position-preview"><span class="eyebrow" id="preview-index">POSITION / 01</span><h3 id="preview-title">选择残局</h3><svg id="preview-board" viewBox="0 0 270 300" role="img" aria-label="所选残局棋盘预览"></svg><p id="preview-description"></p><div id="preview-metrics" class="preview-metrics"></div><div class="preview-mode"><span>进入方式</span><select id="puzzle-mode"><option value="selfplay">模型 × 模型 · 观战</option><option value="duel">Jev 红 × Laya 黑 · 对弈</option><option value="human">我执红 · 挑战模型</option></select></div><button id="enter-puzzle" class="primary-button">进入此残局 ↗</button><small>难度为练习分级，局面经引擎合法性与对抗性检查。</small></div></div>
+  </dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

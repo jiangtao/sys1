@@ -1,0 +1,665 @@
+{
+  "schema": "laya-xiangqi-factor-wording-sweep/v1",
+  "sourceGameId": "9b32e4893c664c4589c53dcf4803e0b2",
+  "sample": "train",
+  "count": 50,
+  "historicalBestChosen": 8,
+  "summary": {
+    "best-direct-rich": {
+      "bestChosen": 18,
+      "meanBestProbability": 0.303
+    }
+  },
+  "rows": [
+    {
+      "ply": 1,
+      "side": "red",
+      "best": "c9a9",
+      "historical": "c9b9",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e7e8",
+          "bestProbability": 0.3389,
+          "inputTokens": 698
+        }
+      }
+    },
+    {
+      "ply": 5,
+      "side": "red",
+      "best": "b9d9",
+      "historical": "b9d9",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "b9d9",
+          "bestProbability": 0.9307,
+          "inputTokens": 689
+        }
+      }
+    },
+    {
+      "ply": 8,
+      "side": "black",
+      "best": "a4b4",
+      "historical": "a4a3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "a4a3",
+          "bestProbability": 0.1151,
+          "inputTokens": 688
+        }
+      }
+    },
+    {
+      "ply": 9,
+      "side": "red",
+      "best": "e1f2",
+      "historical": "c9c8",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c9c8",
+          "bestProbability": 0.0517,
+          "inputTokens": 689
+        }
+      }
+    },
+    {
+      "ply": 12,
+      "side": "black",
+      "best": "b4c4",
+      "historical": "b3d2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "b3d2",
+          "bestProbability": 0.1525,
+          "inputTokens": 691
+        }
+      }
+    },
+    {
+      "ply": 13,
+      "side": "red",
+      "best": "e2c4",
+      "historical": "c7d7",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c7d7",
+          "bestProbability": 0.0001,
+          "inputTokens": 682
+        }
+      }
+    },
+    {
+      "ply": 16,
+      "side": "black",
+      "best": "c1d3",
+      "historical": "a5e5",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "a5d5",
+          "bestProbability": 0.2097,
+          "inputTokens": 688
+        }
+      }
+    },
+    {
+      "ply": 17,
+      "side": "red",
+      "best": "e1f1",
+      "historical": "e1d1",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e1e0",
+          "bestProbability": 0.0766,
+          "inputTokens": 572
+        }
+      }
+    },
+    {
+      "ply": 20,
+      "side": "black",
+      "best": "c5c7",
+      "historical": "d9e8",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c5c7",
+          "bestProbability": 0.3194,
+          "inputTokens": 687
+        }
+      }
+    },
+    {
+      "ply": 21,
+      "side": "red",
+      "best": "d7c7",
+      "historical": "d7d8",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "d7d8",
+          "bestProbability": 0.1424,
+          "inputTokens": 694
+        }
+      }
+    },
+    {
+      "ply": 24,
+      "side": "black",
+      "best": "f4g2",
+      "historical": "d9e8",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "f4e6",
+          "bestProbability": 0.1309,
+          "inputTokens": 689
+        }
+      }
+    },
+    {
+      "ply": 25,
+      "side": "red",
+      "best": "c4e2",
+      "historical": "c7d7",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c7d7",
+          "bestProbability": 0.01,
+          "inputTokens": 687
+        }
+      }
+    },
+    {
+      "ply": 28,
+      "side": "black",
+      "best": "i3g2",
+      "historical": "e9f9",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "d9e8",
+          "bestProbability": 0.2873,
+          "inputTokens": 685
+        }
+      }
+    },
+    {
+      "ply": 29,
+      "side": "red",
+      "best": "e2g4",
+      "historical": "f0e1",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "f0e1",
+          "bestProbability": 0.0055,
+          "inputTokens": 686
+        }
+      }
+    },
+    {
+      "ply": 32,
+      "side": "black",
+      "best": "g2f4",
+      "historical": "e8f9",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e8f9",
+          "bestProbability": 0.2327,
+          "inputTokens": 689
+        }
+      }
+    },
+    {
+      "ply": 33,
+      "side": "red",
+      "best": "f5e5",
+      "historical": "f1e1",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "f5e5",
+          "bestProbability": 0.5686,
+          "inputTokens": 686
+        }
+      }
+    },
+    {
+      "ply": 36,
+      "side": "black",
+      "best": "d3f4",
+      "historical": "d3b4",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "d3b4",
+          "bestProbability": 0.0588,
+          "inputTokens": 691
+        }
+      }
+    },
+    {
+      "ply": 37,
+      "side": "red",
+      "best": "f5f6",
+      "historical": "c7b7",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "f5f6",
+          "bestProbability": 0.7401,
+          "inputTokens": 691
+        }
+      }
+    },
+    {
+      "ply": 40,
+      "side": "black",
+      "best": "d3c5",
+      "historical": "i3h3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "d3f4",
+          "bestProbability": 0.2698,
+          "inputTokens": 689
+        }
+      }
+    },
+    {
+      "ply": 41,
+      "side": "red",
+      "best": "i2g0",
+      "historical": "c7c8",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c7c8",
+          "bestProbability": 0.0434,
+          "inputTokens": 689
+        }
+      }
+    },
+    {
+      "ply": 44,
+      "side": "black",
+      "best": "a6c5",
+      "historical": "e9f9",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "a6b4",
+          "bestProbability": 0.1205,
+          "inputTokens": 586
+        }
+      }
+    },
+    {
+      "ply": 45,
+      "side": "red",
+      "best": "c8d8",
+      "historical": "c8d8",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c8d8",
+          "bestProbability": 0.6509,
+          "inputTokens": 690
+        }
+      }
+    },
+    {
+      "ply": 48,
+      "side": "black",
+      "best": "e9f9",
+      "historical": "e9f9",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c5d3",
+          "bestProbability": 0.3255,
+          "inputTokens": 690
+        }
+      }
+    },
+    {
+      "ply": 49,
+      "side": "red",
+      "best": "f0e0",
+      "historical": "f6f7",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "f6f7",
+          "bestProbability": 0.0548,
+          "inputTokens": 690
+        }
+      }
+    },
+    {
+      "ply": 52,
+      "side": "black",
+      "best": "b7d6",
+      "historical": "i3h3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "b7d6",
+          "bestProbability": 0.8595,
+          "inputTokens": 690
+        }
+      }
+    },
+    {
+      "ply": 53,
+      "side": "red",
+      "best": "f7e7",
+      "historical": "e1d2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e1d2",
+          "bestProbability": 0.0,
+          "inputTokens": 690
+        }
+      }
+    },
+    {
+      "ply": 56,
+      "side": "black",
+      "best": "d6f5",
+      "historical": "i3h3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "f9f8",
+          "bestProbability": 0.1403,
+          "inputTokens": 688
+        }
+      }
+    },
+    {
+      "ply": 57,
+      "side": "red",
+      "best": "d8e8",
+      "historical": "d8e8",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "d8e8",
+          "bestProbability": 0.4259,
+          "inputTokens": 689
+        }
+      }
+    },
+    {
+      "ply": 60,
+      "side": "black",
+      "best": "h3g3",
+      "historical": "h3i3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3h2",
+          "bestProbability": 0.3756,
+          "inputTokens": 463
+        }
+      }
+    },
+    {
+      "ply": 61,
+      "side": "red",
+      "best": "g0i2",
+      "historical": "g0e2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e1d0",
+          "bestProbability": 0.2646,
+          "inputTokens": 684
+        }
+      }
+    },
+    {
+      "ply": 64,
+      "side": "black",
+      "best": "h3g3",
+      "historical": "h3i3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3h2",
+          "bestProbability": 0.2168,
+          "inputTokens": 472
+        }
+      }
+    },
+    {
+      "ply": 65,
+      "side": "red",
+      "best": "e1d0",
+      "historical": "f1f0",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e1d0",
+          "bestProbability": 0.492,
+          "inputTokens": 682
+        }
+      }
+    },
+    {
+      "ply": 68,
+      "side": "black",
+      "best": "h3i3",
+      "historical": "h3g3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3i3",
+          "bestProbability": 0.7298,
+          "inputTokens": 474
+        }
+      }
+    },
+    {
+      "ply": 69,
+      "side": "red",
+      "best": "f0e0",
+      "historical": "g4e2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "g4e2",
+          "bestProbability": 0.115,
+          "inputTokens": 684
+        }
+      }
+    },
+    {
+      "ply": 72,
+      "side": "black",
+      "best": "h3i3",
+      "historical": "h3g3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3i3",
+          "bestProbability": 0.4744,
+          "inputTokens": 472
+        }
+      }
+    },
+    {
+      "ply": 73,
+      "side": "red",
+      "best": "e1f2",
+      "historical": "e1f2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "g4e2",
+          "bestProbability": 0.1108,
+          "inputTokens": 682
+        }
+      }
+    },
+    {
+      "ply": 76,
+      "side": "black",
+      "best": "h3i3",
+      "historical": "h3g3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3i3",
+          "bestProbability": 0.6197,
+          "inputTokens": 470
+        }
+      }
+    },
+    {
+      "ply": 77,
+      "side": "red",
+      "best": "f2e1",
+      "historical": "f2e1",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e2c4",
+          "bestProbability": 0.0184,
+          "inputTokens": 678
+        }
+      }
+    },
+    {
+      "ply": 80,
+      "side": "black",
+      "best": "h3g3",
+      "historical": "h3h2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3g3",
+          "bestProbability": 0.6624,
+          "inputTokens": 470
+        }
+      }
+    },
+    {
+      "ply": 81,
+      "side": "red",
+      "best": "i2g0",
+      "historical": "e2c4",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "e2g0",
+          "bestProbability": 0.2239,
+          "inputTokens": 681
+        }
+      }
+    },
+    {
+      "ply": 84,
+      "side": "black",
+      "best": "h3i3",
+      "historical": "h3g3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3i3",
+          "bestProbability": 0.4746,
+          "inputTokens": 471
+        }
+      }
+    },
+    {
+      "ply": 85,
+      "side": "red",
+      "best": "e0f0",
+      "historical": "g0e2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "g0e2",
+          "bestProbability": 0.0243,
+          "inputTokens": 683
+        }
+      }
+    },
+    {
+      "ply": 88,
+      "side": "black",
+      "best": "h3i3",
+      "historical": "h3g3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3i3",
+          "bestProbability": 0.4955,
+          "inputTokens": 471
+        }
+      }
+    },
+    {
+      "ply": 89,
+      "side": "red",
+      "best": "c0a2",
+      "historical": "f0f1",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "c0a2",
+          "bestProbability": 0.4688,
+          "inputTokens": 683
+        }
+      }
+    },
+    {
+      "ply": 92,
+      "side": "black",
+      "best": "h3g3",
+      "historical": "h3g3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3h2",
+          "bestProbability": 0.3081,
+          "inputTokens": 470
+        }
+      }
+    },
+    {
+      "ply": 93,
+      "side": "red",
+      "best": "f2e1",
+      "historical": "f2e1",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "f2e1",
+          "bestProbability": 0.5644,
+          "inputTokens": 682
+        }
+      }
+    },
+    {
+      "ply": 96,
+      "side": "black",
+      "best": "h3i3",
+      "historical": "h3h2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3i3",
+          "bestProbability": 0.4837,
+          "inputTokens": 472
+        }
+      }
+    },
+    {
+      "ply": 97,
+      "side": "red",
+      "best": "a2c0",
+      "historical": "e1f2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "a2c4",
+          "bestProbability": 0.0032,
+          "inputTokens": 683
+        }
+      }
+    },
+    {
+      "ply": 100,
+      "side": "black",
+      "best": "h3g3",
+      "historical": "h3i3",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "h3h2",
+          "bestProbability": 0.2701,
+          "inputTokens": 470
+        }
+      }
+    },
+    {
+      "ply": 101,
+      "side": "red",
+      "best": "i2g4",
+      "historical": "e1d2",
+      "variants": {
+        "best-direct-rich": {
+          "choice": "i2g4",
+          "bestProbability": 0.4914,
+          "inputTokens": 682
+        }
+      }
+    }
+  ]
+}

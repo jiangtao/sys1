@@ -1,0 +1,18 @@
+{
+  "browser": "Isolated Headless Chrome 153 (not the user’s connected Chrome profile)",
+  "checks": [
+    "Standard game 32 pieces and 10 puzzle cards loaded",
+    "Red e3e4 → actual black reply → two decision logs and raw Laya result",
+    "Decision tree displays real candidates, PV continuation, guard and final move",
+    "Undo restores opening position while preserving historical decision logs",
+    "Puzzle 1 and 10 initialize through UI with correct titles and pieces",
+    "Board flip changes orientation and returns correctly",
+    "390px viewport: no horizontal overflow",
+    "No browser JavaScript exceptions"
+  ],
+  "screenshots": [
+    "/tmp/laya-xiangqi-ready.png",
+    "/tmp/laya-xiangqi-tree.png",
+    "/tmp/laya-xiangqi-mobile.png"
+  ]
+}

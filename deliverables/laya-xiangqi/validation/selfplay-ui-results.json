@@ -1,0 +1,20 @@
+{
+  "browser": "Isolated Headless Chrome 153 (not the user’s connected Chrome profile)",
+  "checks": [
+    "Red and black each make an independent real Laya call with correct score perspective and distinct request IDs",
+    "Continuous self-play advances both sides; pause finishes current move and stops further requests",
+    "PV branch preview updates visible board and leaves actual game FEN unchanged",
+    "Side filters work; self-play undo removes exactly one ply and preserves archived decision",
+    "10 harder endgames selectable by difficulty with live board preview and explicit play mode",
+    "Refresh restores the same game and decision log with autoplay safely paused",
+    "Existing human-vs-Laya mode still completes a full legal turn",
+    "390px layout: main view and endgame dialog have no horizontal overflow",
+    "No browser JavaScript exceptions"
+  ],
+  "screenshots": [
+    "/tmp/laya-selfplay-desktop.png",
+    "/tmp/laya-selfplay-puzzles.png",
+    "/tmp/laya-selfplay-mobile.png",
+    "/tmp/laya-selfplay-mobile-puzzles.png"
+  ]
+}

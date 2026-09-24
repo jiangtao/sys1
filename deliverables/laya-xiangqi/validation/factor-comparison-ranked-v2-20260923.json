@@ -1,0 +1,1269 @@
+{
+  "schema": "laya-xiangqi-fixed-position-comparison/v1",
+  "sourceGameId": "9b32e4893c664c4589c53dcf4803e0b2",
+  "sample": "half",
+  "modelService": "http://127.0.0.1:8765",
+  "sampledPlies": [
+    1,
+    5,
+    8,
+    9,
+    12,
+    13,
+    16,
+    17,
+    20,
+    21,
+    24,
+    25,
+    28,
+    29,
+    32,
+    33,
+    36,
+    37,
+    40,
+    41,
+    44,
+    45,
+    48,
+    49,
+    52,
+    53,
+    56,
+    57,
+    60,
+    61,
+    64,
+    65,
+    68,
+    69,
+    72,
+    73,
+    76,
+    77,
+    80,
+    81,
+    84,
+    85,
+    88,
+    89,
+    92,
+    93,
+    96,
+    97,
+    100,
+    101
+  ],
+  "baseline": {
+    "evaluated": 50,
+    "exactEngineBestChosen": 8,
+    "exactEngineBestRate": 0.16,
+    "meanEngineBestProbability": 0.1887,
+    "bySide": {
+      "red": {
+        "evaluated": 26,
+        "bestChosen": 6
+      },
+      "black": {
+        "evaluated": 24,
+        "bestChosen": 2
+      }
+    }
+  },
+  "revised": {
+    "evaluated": 50,
+    "exactEngineBestChosen": 6,
+    "exactEngineBestRate": 0.12,
+    "meanEngineBestProbability": 0.1773,
+    "bySide": {
+      "red": {
+        "evaluated": 26,
+        "bestChosen": 3
+      },
+      "black": {
+        "evaluated": 24,
+        "bestChosen": 3
+      }
+    }
+  },
+  "rows": [
+    {
+      "ply": 1,
+      "side": "red",
+      "before": "2Rak4/4a4/4P4/1C7/2n4rp/p5P2/2c5P/4B4/4A4/4KAB2 w - - 5 35",
+      "engineBestMove": "c9a9",
+      "candidateMoves": [
+        "c9a9",
+        "b6c6",
+        "c9b9",
+        "g4g5",
+        "e7e8"
+      ],
+      "baseline": {
+        "choice": "c9b9",
+        "engineBestProbability": 0.0456,
+        "inputTokens": 547
+      },
+      "revised": {
+        "choice": "c9a9",
+        "engineBestProbability": 0.4368,
+        "inputTokens": 705,
+        "latencyMs": 946
+      }
+    },
+    {
+      "ply": 5,
+      "side": "red",
+      "before": "RCcak4/4a4/4P4/9/7rp/p5P2/1n6P/4B4/4A4/4KAB2 w - - 9 37",
+      "engineBestMove": "b9d9",
+      "candidateMoves": [
+        "b9d9",
+        "e1d2",
+        "e7e8",
+        "g4g5",
+        "e0d0"
+      ],
+      "baseline": {
+        "choice": "b9d9",
+        "engineBestProbability": 1.0,
+        "inputTokens": 541
+      },
+      "revised": {
+        "choice": "b9d9",
+        "engineBestProbability": 0.9107,
+        "inputTokens": 704,
+        "latencyMs": 135
+      }
+    },
+    {
+      "ply": 8,
+      "side": "black",
+      "before": "2Rak4/9/4P4/9/7rp/p5P2/1n6P/4B4/4A4/4KAB2 b - - 0 38",
+      "engineBestMove": "a4b4",
+      "candidateMoves": [
+        "a4b4",
+        "h5a5",
+        "h5c5",
+        "a4a3",
+        "h5e5"
+      ],
+      "baseline": {
+        "choice": "a4a3",
+        "engineBestProbability": 0.0291,
+        "inputTokens": 535
+      },
+      "revised": {
+        "choice": "h5e5",
+        "engineBestProbability": 0.0084,
+        "inputTokens": 697,
+        "latencyMs": 132
+      }
+    },
+    {
+      "ply": 9,
+      "side": "red",
+      "before": "2Rak4/9/4P4/9/7rp/1p4P2/1n6P/4B4/4A4/4KAB2 w - - 0 39",
+      "engineBestMove": "e1f2",
+      "candidateMoves": [
+        "e1f2",
+        "c9c3",
+        "c9c7",
+        "c9c8",
+        "c9c6"
+      ],
+      "baseline": {
+        "choice": "c9c8",
+        "engineBestProbability": 0.0217,
+        "inputTokens": 534
+      },
+      "revised": {
+        "choice": "c9c6",
+        "engineBestProbability": 0.0329,
+        "inputTokens": 696,
+        "latencyMs": 125
+      }
+    },
+    {
+      "ply": 12,
+      "side": "black",
+      "before": "3ak4/9/2R1P4/9/r7p/1p4P2/1n6P/4BA3/9/4KAB2 b - - 3 40",
+      "engineBestMove": "b4c4",
+      "candidateMoves": [
+        "b4c4",
+        "b3d2",
+        "a5a0",
+        "i5i4",
+        "b3d4"
+      ],
+      "baseline": {
+        "choice": "b3d2",
+        "engineBestProbability": 0.0052,
+        "inputTokens": 538
+      },
+      "revised": {
+        "choice": "b3d2",
+        "engineBestProbability": 0.1853,
+        "inputTokens": 700,
+        "latencyMs": 158
+      }
+    },
+    {
+      "ply": 13,
+      "side": "red",
+      "before": "3ak4/9/2R1P4/9/r7p/2p3P2/1n6P/4BA3/9/4KAB2 w - - 0 41",
+      "engineBestMove": "e2c4",
+      "candidateMoves": [
+        "e2c4",
+        "e0e1",
+        "e0d0",
+        "c7d7",
+        "c7c6"
+      ],
+      "baseline": {
+        "choice": "c7d7",
+        "engineBestProbability": 0.0429,
+        "inputTokens": 530
+      },
+      "revised": {
+        "choice": "c7d7",
+        "engineBestProbability": 0.1216,
+        "inputTokens": 693,
+        "latencyMs": 126
+      }
+    },
+    {
+      "ply": 16,
+      "side": "black",
+      "before": "3ak4/9/2R1P4/9/r7p/2B3P2/8P/5A3/2n1K4/5AB2 b - - 2 42",
+      "engineBestMove": "c1d3",
+      "candidateMoves": [
+        "c1d3",
+        "a5e5",
+        "a5c5",
+        "a5f5",
+        "a5d5"
+      ],
+      "baseline": {
+        "choice": "a5e5",
+        "engineBestProbability": 0.3001,
+        "inputTokens": 533
+      },
+      "revised": {
+        "choice": "a5d5",
+        "engineBestProbability": 0.3481,
+        "inputTokens": 696,
+        "latencyMs": 151
+      }
+    },
+    {
+      "ply": 17,
+      "side": "red",
+      "before": "3ak4/9/2R1P4/9/r7p/2B3P2/3n4P/5A3/4K4/5AB2 w - - 3 43",
+      "engineBestMove": "e1f1",
+      "candidateMoves": [
+        "e1f1",
+        "e1d1",
+        "e1e2",
+        "e1e0"
+      ],
+      "baseline": {
+        "choice": "e1d1",
+        "engineBestProbability": 0.3469,
+        "inputTokens": 449
+      },
+      "revised": {
+        "choice": "e1d1",
+        "engineBestProbability": 0.1408,
+        "inputTokens": 584,
+        "latencyMs": 147
+      }
+    },
+    {
+      "ply": 20,
+      "side": "black",
+      "before": "3ak4/9/2RP5/9/2r5p/2B3P2/3n4P/5A3/5K3/5AB2 b - - 0 44",
+      "engineBestMove": "c5c7",
+      "candidateMoves": [
+        "c5c7",
+        "c5d5",
+        "d9e8",
+        "e9f9",
+        "e9e8"
+      ],
+      "baseline": {
+        "choice": "d9e8",
+        "engineBestProbability": 0.0099,
+        "inputTokens": 535
+      },
+      "revised": {
+        "choice": "e9e8",
+        "engineBestProbability": 0.1264,
+        "inputTokens": 698,
+        "latencyMs": 145
+      }
+    },
+    {
+      "ply": 21,
+      "side": "red",
+      "before": "3ak4/9/2rP5/9/8p/2B3P2/3n4P/5A3/5K3/5AB2 w - - 0 45",
+      "engineBestMove": "d7c7",
+      "candidateMoves": [
+        "d7c7",
+        "d7d8",
+        "g4g5",
+        "f0e1",
+        "g0i2"
+      ],
+      "baseline": {
+        "choice": "d7d8",
+        "engineBestProbability": 0.2705,
+        "inputTokens": 542
+      },
+      "revised": {
+        "choice": "g0i2",
+        "engineBestProbability": 0.1461,
+        "inputTokens": 705,
+        "latencyMs": 130
+      }
+    },
+    {
+      "ply": 24,
+      "side": "black",
+      "before": "3ak4/9/2P6/9/6P1p/2B2n3/8P/5A3/5K3/5AB2 b - - 0 46",
+      "engineBestMove": "f4g2",
+      "candidateMoves": [
+        "f4g2",
+        "f4d5",
+        "e9e8",
+        "d9e8",
+        "f4e6"
+      ],
+      "baseline": {
+        "choice": "d9e8",
+        "engineBestProbability": 0.007,
+        "inputTokens": 534
+      },
+      "revised": {
+        "choice": "f4e6",
+        "engineBestProbability": 0.0551,
+        "inputTokens": 696,
+        "latencyMs": 124
+      }
+    },
+    {
+      "ply": 25,
+      "side": "red",
+      "before": "3ak4/9/2P6/9/6P1p/2B6/8P/5An2/5K3/5AB2 w - - 1 47",
+      "engineBestMove": "c4e2",
+      "candidateMoves": [
+        "c4e2",
+        "f0e1",
+        "c7b7",
+        "c7d7",
+        "g5h5"
+      ],
+      "baseline": {
+        "choice": "c7d7",
+        "engineBestProbability": 0.2769,
+        "inputTokens": 532
+      },
+      "revised": {
+        "choice": "c7d7",
+        "engineBestProbability": 0.133,
+        "inputTokens": 694,
+        "latencyMs": 144
+      }
+    },
+    {
+      "ply": 28,
+      "side": "black",
+      "before": "3ak4/9/2P6/9/6P1p/9/8n/4BA2B/5K3/5A3 b - - 1 48",
+      "engineBestMove": "i3g2",
+      "candidateMoves": [
+        "i3g2",
+        "d9e8",
+        "e9e8",
+        "e9f9",
+        "i5i4"
+      ],
+      "baseline": {
+        "choice": "e9f9",
+        "engineBestProbability": 0.0139,
+        "inputTokens": 531
+      },
+      "revised": {
+        "choice": "e9e8",
+        "engineBestProbability": 0.0243,
+        "inputTokens": 693,
+        "latencyMs": 151
+      }
+    },
+    {
+      "ply": 29,
+      "side": "red",
+      "before": "3ak4/9/2P6/9/6P1p/9/9/4BAn1B/5K3/5A3 w - - 2 49",
+      "engineBestMove": "e2g4",
+      "candidateMoves": [
+        "e2g4",
+        "g5f5",
+        "c7b7",
+        "i2g4",
+        "f0e1"
+      ],
+      "baseline": {
+        "choice": "f0e1",
+        "engineBestProbability": 0.0001,
+        "inputTokens": 531
+      },
+      "revised": {
+        "choice": "f0e1",
+        "engineBestProbability": 0.0315,
+        "inputTokens": 693,
+        "latencyMs": 136
+      }
+    },
+    {
+      "ply": 32,
+      "side": "black",
+      "before": "4k4/4a4/2P6/9/5P2p/6B2/9/5An1B/5K3/5A3 b - - 0 50",
+      "engineBestMove": "g2f4",
+      "candidateMoves": [
+        "g2f4",
+        "e9f9",
+        "i5i4",
+        "e8d9",
+        "e8f9"
+      ],
+      "baseline": {
+        "choice": "e8f9",
+        "engineBestProbability": 0.0556,
+        "inputTokens": 535
+      },
+      "revised": {
+        "choice": "i5i4",
+        "engineBestProbability": 0.065,
+        "inputTokens": 697,
+        "latencyMs": 131
+      }
+    },
+    {
+      "ply": 33,
+      "side": "red",
+      "before": "4k4/4a4/2P6/9/5P2p/5nB2/9/5A2B/5K3/5A3 w - - 1 51",
+      "engineBestMove": "f5e5",
+      "candidateMoves": [
+        "f5e5",
+        "c7b7",
+        "c7c8",
+        "f5g5",
+        "f1e1"
+      ],
+      "baseline": {
+        "choice": "f1e1",
+        "engineBestProbability": 0.0031,
+        "inputTokens": 531
+      },
+      "revised": {
+        "choice": "f5e5",
+        "engineBestProbability": 0.3368,
+        "inputTokens": 694,
+        "latencyMs": 137
+      }
+    },
+    {
+      "ply": 36,
+      "side": "black",
+      "before": "4k4/4a4/2P6/9/5P2p/6B2/3n5/5A2B/5K3/5A3 b - - 0 52",
+      "engineBestMove": "d3f4",
+      "candidateMoves": [
+        "d3f4",
+        "i5i4",
+        "d3c5",
+        "e9f9",
+        "d3b4"
+      ],
+      "baseline": {
+        "choice": "d3b4",
+        "engineBestProbability": 0.0025,
+        "inputTokens": 537
+      },
+      "revised": {
+        "choice": "d3c5",
+        "engineBestProbability": 0.0845,
+        "inputTokens": 699,
+        "latencyMs": 166
+      }
+    },
+    {
+      "ply": 37,
+      "side": "red",
+      "before": "4k4/4a4/2P6/9/5P3/6B1p/3n5/5A2B/5K3/5A3 w - - 0 53",
+      "engineBestMove": "f5f6",
+      "candidateMoves": [
+        "f5f6",
+        "f0e1",
+        "c7c8",
+        "c7b7",
+        "f5g5"
+      ],
+      "baseline": {
+        "choice": "c7b7",
+        "engineBestProbability": 0.2357,
+        "inputTokens": 536
+      },
+      "revised": {
+        "choice": "f5g5",
+        "engineBestProbability": 0.2437,
+        "inputTokens": 698,
+        "latencyMs": 136
+      }
+    },
+    {
+      "ply": 40,
+      "side": "black",
+      "before": "4k4/4a4/2P6/5P3/9/6B2/3n4p/5A2B/4AK3/9 b - - 1 54",
+      "engineBestMove": "d3c5",
+      "candidateMoves": [
+        "d3c5",
+        "d3e5",
+        "i3h3",
+        "e9f9",
+        "d3f4"
+      ],
+      "baseline": {
+        "choice": "i3h3",
+        "engineBestProbability": 0.0789,
+        "inputTokens": 535
+      },
+      "revised": {
+        "choice": "d3f4",
+        "engineBestProbability": 0.0697,
+        "inputTokens": 697,
+        "latencyMs": 140
+      }
+    },
+    {
+      "ply": 41,
+      "side": "red",
+      "before": "4k4/4a4/2P6/5P3/2n6/6B2/8p/5A2B/4AK3/9 w - - 2 55",
+      "engineBestMove": "i2g0",
+      "candidateMoves": [
+        "i2g0",
+        "f1f0",
+        "g4e2",
+        "e1d0",
+        "c7c8"
+      ],
+      "baseline": {
+        "choice": "c7c8",
+        "engineBestProbability": 0.0076,
+        "inputTokens": 534
+      },
+      "revised": {
+        "choice": "c7c8",
+        "engineBestProbability": 0.0165,
+        "inputTokens": 696,
+        "latencyMs": 143
+      }
+    },
+    {
+      "ply": 44,
+      "side": "black",
+      "before": "4k4/2P1a4/9/n4P3/9/6B2/8p/5A3/4AK3/6B2 b - - 0 56",
+      "engineBestMove": "a6c5",
+      "candidateMoves": [
+        "a6c5",
+        "i3h3",
+        "e9f9",
+        "a6b4"
+      ],
+      "baseline": {
+        "choice": "e9f9",
+        "engineBestProbability": 0.0499,
+        "inputTokens": 464
+      },
+      "revised": {
+        "choice": "a6b4",
+        "engineBestProbability": 0.0542,
+        "inputTokens": 597,
+        "latencyMs": 136
+      }
+    },
+    {
+      "ply": 45,
+      "side": "red",
+      "before": "4k4/2P1a4/9/5P3/2n6/6B2/8p/5A3/4AK3/6B2 w - - 1 57",
+      "engineBestMove": "c8d8",
+      "candidateMoves": [
+        "c8d8",
+        "f1f0",
+        "g4e2",
+        "f6g6",
+        "g0i2"
+      ],
+      "baseline": {
+        "choice": "c8d8",
+        "engineBestProbability": 0.3504,
+        "inputTokens": 535
+      },
+      "revised": {
+        "choice": "f6g6",
+        "engineBestProbability": 0.2289,
+        "inputTokens": 697,
+        "latencyMs": 136
+      }
+    },
+    {
+      "ply": 48,
+      "side": "black",
+      "before": "4k4/3P5/3a5/5P3/2n6/6B2/8p/5A3/4A4/5KB2 b - - 2 58",
+      "engineBestMove": "e9f9",
+      "candidateMoves": [
+        "e9f9",
+        "d7e8",
+        "i3h3",
+        "c5b7",
+        "c5d3"
+      ],
+      "baseline": {
+        "choice": "e9f9",
+        "engineBestProbability": 0.4617,
+        "inputTokens": 536
+      },
+      "revised": {
+        "choice": "c5d3",
+        "engineBestProbability": 0.1542,
+        "inputTokens": 698,
+        "latencyMs": 137
+      }
+    },
+    {
+      "ply": 49,
+      "side": "red",
+      "before": "5k3/3P5/3a5/5P3/2n6/6B2/8p/5A3/4A4/5KB2 w - - 3 59",
+      "engineBestMove": "f0e0",
+      "candidateMoves": [
+        "f0e0",
+        "g4e2",
+        "d8c8",
+        "g0i2",
+        "f6f7"
+      ],
+      "baseline": {
+        "choice": "f6f7",
+        "engineBestProbability": 0.0494,
+        "inputTokens": 535
+      },
+      "revised": {
+        "choice": "f6f7",
+        "engineBestProbability": 0.0917,
+        "inputTokens": 697,
+        "latencyMs": 130
+      }
+    },
+    {
+      "ply": 52,
+      "side": "black",
+      "before": "5k3/2P6/1n1a1P3/9/9/6B2/8p/5A3/4A4/5KB2 b - - 0 60",
+      "engineBestMove": "b7d6",
+      "candidateMoves": [
+        "b7d6",
+        "d7e8",
+        "b7a9",
+        "b7a5",
+        "i3h3"
+      ],
+      "baseline": {
+        "choice": "i3h3",
+        "engineBestProbability": 0.157,
+        "inputTokens": 536
+      },
+      "revised": {
+        "choice": "b7d6",
+        "engineBestProbability": 0.3303,
+        "inputTokens": 698,
+        "latencyMs": 145
+      }
+    },
+    {
+      "ply": 53,
+      "side": "red",
+      "before": "5k3/2P6/3a1P3/3n5/9/6B2/8p/5A3/4A4/5KB2 w - - 1 61",
+      "engineBestMove": "f7e7",
+      "candidateMoves": [
+        "f7e7",
+        "f7g7",
+        "f7f8",
+        "c8b8",
+        "e1d2"
+      ],
+      "baseline": {
+        "choice": "e1d2",
+        "engineBestProbability": 0.0313,
+        "inputTokens": 535
+      },
+      "revised": {
+        "choice": "e1d2",
+        "engineBestProbability": 0.117,
+        "inputTokens": 697,
+        "latencyMs": 152
+      }
+    },
+    {
+      "ply": 56,
+      "side": "black",
+      "before": "5k3/3Pa4/4P4/3n5/9/6B2/8p/5A3/4A4/5KB2 b - - 0 62",
+      "engineBestMove": "d6f5",
+      "candidateMoves": [
+        "d6f5",
+        "e8f7",
+        "i3h3",
+        "e8d9",
+        "f9f8"
+      ],
+      "baseline": {
+        "choice": "i3h3",
+        "engineBestProbability": 0.1073,
+        "inputTokens": 534
+      },
+      "revised": {
+        "choice": "e8d9",
+        "engineBestProbability": 0.0528,
+        "inputTokens": 696,
+        "latencyMs": 136
+      }
+    },
+    {
+      "ply": 57,
+      "side": "red",
+      "before": "5k3/3Pa4/4P4/3n5/9/6B2/7p1/5A3/4A4/5KB2 w - - 0 63",
+      "engineBestMove": "d8e8",
+      "candidateMoves": [
+        "d8e8",
+        "e7e8",
+        "f0e0",
+        "g4e2",
+        "g0i2"
+      ],
+      "baseline": {
+        "choice": "d8e8",
+        "engineBestProbability": 0.3262,
+        "inputTokens": 540
+      },
+      "revised": {
+        "choice": "g0i2",
+        "engineBestProbability": 0.081,
+        "inputTokens": 702,
+        "latencyMs": 165
+      }
+    },
+    {
+      "ply": 60,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/6B2/7p1/5A3/4A4/5KB2 b - - 0 64",
+      "engineBestMove": "h3g3",
+      "candidateMoves": [
+        "h3g3",
+        "h3i3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3i3",
+        "engineBestProbability": 0.2831,
+        "inputTokens": 380
+      },
+      "revised": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.3723,
+        "inputTokens": 485,
+        "latencyMs": 165
+      }
+    },
+    {
+      "ply": 61,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/6B2/8p/5A3/4A4/5KB2 w - - 0 65",
+      "engineBestMove": "g0i2",
+      "candidateMoves": [
+        "g0i2",
+        "e1d0",
+        "g0e2",
+        "f0e0",
+        "e1d2"
+      ],
+      "baseline": {
+        "choice": "g0e2",
+        "engineBestProbability": 0.0664,
+        "inputTokens": 529
+      },
+      "revised": {
+        "choice": "e1d0",
+        "engineBestProbability": 0.0711,
+        "inputTokens": 691,
+        "latencyMs": 145
+      }
+    },
+    {
+      "ply": 64,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/6B2/7p1/5A2B/4AK3/9 b - - 1 66",
+      "engineBestMove": "h3g3",
+      "candidateMoves": [
+        "h3g3",
+        "h3i3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3i3",
+        "engineBestProbability": 0.2502,
+        "inputTokens": 389
+      },
+      "revised": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.2271,
+        "inputTokens": 493,
+        "latencyMs": 156
+      }
+    },
+    {
+      "ply": 65,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/6B2/8p/5A2B/4AK3/9 w - - 0 67",
+      "engineBestMove": "e1d0",
+      "candidateMoves": [
+        "e1d0",
+        "e1d2",
+        "i2g0",
+        "e1f0",
+        "f1f0"
+      ],
+      "baseline": {
+        "choice": "f1f0",
+        "engineBestProbability": 0.0569,
+        "inputTokens": 527
+      },
+      "revised": {
+        "choice": "f1f0",
+        "engineBestProbability": 0.0999,
+        "inputTokens": 689,
+        "latencyMs": 127
+      }
+    },
+    {
+      "ply": 68,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/6B2/7p1/5A2B/9/3A1K3 b - - 1 68",
+      "engineBestMove": "h3i3",
+      "candidateMoves": [
+        "h3i3",
+        "h3g3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.3275,
+        "inputTokens": 391
+      },
+      "revised": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.3201,
+        "inputTokens": 495,
+        "latencyMs": 147
+      }
+    },
+    {
+      "ply": 69,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/6B2/8p/5A2B/9/3A1K3 w - - 0 69",
+      "engineBestMove": "f0e0",
+      "candidateMoves": [
+        "f0e0",
+        "f0f1",
+        "i2g0",
+        "d0e1",
+        "g4e2"
+      ],
+      "baseline": {
+        "choice": "g4e2",
+        "engineBestProbability": 0.1589,
+        "inputTokens": 529
+      },
+      "revised": {
+        "choice": "g4e2",
+        "engineBestProbability": 0.0392,
+        "inputTokens": 691,
+        "latencyMs": 126
+      }
+    },
+    {
+      "ply": 72,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/6B2/7p1/8B/4A4/3AK4 b - - 1 70",
+      "engineBestMove": "h3i3",
+      "candidateMoves": [
+        "h3i3",
+        "h3g3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.2756,
+        "inputTokens": 389
+      },
+      "revised": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.1799,
+        "inputTokens": 493,
+        "latencyMs": 87
+      }
+    },
+    {
+      "ply": 73,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/6B2/8p/8B/4A4/3AK4 w - - 0 71",
+      "engineBestMove": "e1f2",
+      "candidateMoves": [
+        "e1f2",
+        "e1d2",
+        "i2g0",
+        "e1f0",
+        "g4e2"
+      ],
+      "baseline": {
+        "choice": "e1f2",
+        "engineBestProbability": 0.4827,
+        "inputTokens": 527
+      },
+      "revised": {
+        "choice": "e1d2",
+        "engineBestProbability": 0.1499,
+        "inputTokens": 689,
+        "latencyMs": 128
+      }
+    },
+    {
+      "ply": 76,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/9/7p1/4BA2B/9/3AK4 b - - 1 72",
+      "engineBestMove": "h3i3",
+      "candidateMoves": [
+        "h3i3",
+        "h3g3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.1395,
+        "inputTokens": 387
+      },
+      "revised": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.349,
+        "inputTokens": 491,
+        "latencyMs": 204
+      }
+    },
+    {
+      "ply": 77,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/9/6p2/4BA2B/9/3AK4 w - - 0 73",
+      "engineBestMove": "f2e1",
+      "candidateMoves": [
+        "f2e1",
+        "e0f0",
+        "i2g4",
+        "e0e1",
+        "e2c4"
+      ],
+      "baseline": {
+        "choice": "f2e1",
+        "engineBestProbability": 0.6184,
+        "inputTokens": 523
+      },
+      "revised": {
+        "choice": "e0e1",
+        "engineBestProbability": 0.26,
+        "inputTokens": 686,
+        "latencyMs": 133
+      }
+    },
+    {
+      "ply": 80,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/9/7p1/4BA2B/9/3AK4 b - - 1 74",
+      "engineBestMove": "h3g3",
+      "candidateMoves": [
+        "h3g3",
+        "h3i3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.2347,
+        "inputTokens": 387
+      },
+      "revised": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.3879,
+        "inputTokens": 491,
+        "latencyMs": 99
+      }
+    },
+    {
+      "ply": 81,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/9/8p/4BA2B/9/3AK4 w - - 0 75",
+      "engineBestMove": "i2g0",
+      "candidateMoves": [
+        "i2g0",
+        "e2g0",
+        "i2g4",
+        "e2c4",
+        "e0f0"
+      ],
+      "baseline": {
+        "choice": "e2c4",
+        "engineBestProbability": 0.043,
+        "inputTokens": 526
+      },
+      "revised": {
+        "choice": "e2g0",
+        "engineBestProbability": 0.0546,
+        "inputTokens": 688,
+        "latencyMs": 130
+      }
+    },
+    {
+      "ply": 84,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/9/7p1/5A3/9/2BAK1B2 b - - 1 76",
+      "engineBestMove": "h3i3",
+      "candidateMoves": [
+        "h3i3",
+        "h3g3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.2115,
+        "inputTokens": 388
+      },
+      "revised": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.3221,
+        "inputTokens": 492,
+        "latencyMs": 153
+      }
+    },
+    {
+      "ply": 85,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/9/6p2/5A3/9/2BAK1B2 w - - 0 77",
+      "engineBestMove": "e0f0",
+      "candidateMoves": [
+        "e0f0",
+        "f2e1",
+        "g0e2",
+        "c0a2",
+        "g0i2"
+      ],
+      "baseline": {
+        "choice": "g0e2",
+        "engineBestProbability": 0.0806,
+        "inputTokens": 528
+      },
+      "revised": {
+        "choice": "g0i2",
+        "engineBestProbability": 0.0882,
+        "inputTokens": 690,
+        "latencyMs": 125
+      }
+    },
+    {
+      "ply": 88,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/9/7p1/4BA3/9/2BA1K3 b - - 1 78",
+      "engineBestMove": "h3i3",
+      "candidateMoves": [
+        "h3i3",
+        "h3g3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.177,
+        "inputTokens": 388
+      },
+      "revised": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.26,
+        "inputTokens": 492,
+        "latencyMs": 84
+      }
+    },
+    {
+      "ply": 89,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/9/6p2/4BA3/9/2BA1K3 w - - 0 79",
+      "engineBestMove": "c0a2",
+      "candidateMoves": [
+        "c0a2",
+        "e2c4",
+        "e2g0",
+        "f0f1",
+        "e2g4"
+      ],
+      "baseline": {
+        "choice": "f0f1",
+        "engineBestProbability": 0.0282,
+        "inputTokens": 528
+      },
+      "revised": {
+        "choice": "e2g4",
+        "engineBestProbability": 0.0676,
+        "inputTokens": 690,
+        "latencyMs": 124
+      }
+    },
+    {
+      "ply": 92,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/9/7p1/B3BA3/9/3AK4 b - - 1 80",
+      "engineBestMove": "h3g3",
+      "candidateMoves": [
+        "h3g3",
+        "h3i3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3g3",
+        "engineBestProbability": 0.3767,
+        "inputTokens": 387
+      },
+      "revised": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.2839,
+        "inputTokens": 491,
+        "latencyMs": 90
+      }
+    },
+    {
+      "ply": 93,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/9/6p2/B3BA3/9/3AK4 w - - 0 81",
+      "engineBestMove": "f2e1",
+      "candidateMoves": [
+        "f2e1",
+        "e0f0",
+        "a2c0",
+        "e2g0",
+        "e0e1"
+      ],
+      "baseline": {
+        "choice": "f2e1",
+        "engineBestProbability": 0.8127,
+        "inputTokens": 527
+      },
+      "revised": {
+        "choice": "a2c0",
+        "engineBestProbability": 0.2712,
+        "inputTokens": 689,
+        "latencyMs": 135
+      }
+    },
+    {
+      "ply": 96,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/9/7p1/B8/4A4/3AK1B2 b - - 1 82",
+      "engineBestMove": "h3i3",
+      "candidateMoves": [
+        "h3i3",
+        "h3g3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.2519,
+        "inputTokens": 389
+      },
+      "revised": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.2331,
+        "inputTokens": 493,
+        "latencyMs": 86
+      }
+    },
+    {
+      "ply": 97,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/9/8p/B8/4A4/3AK1B2 w - - 0 83",
+      "engineBestMove": "a2c0",
+      "candidateMoves": [
+        "a2c0",
+        "e1d2",
+        "e1f2",
+        "g0e2",
+        "a2c4"
+      ],
+      "baseline": {
+        "choice": "e1f2",
+        "engineBestProbability": 0.0238,
+        "inputTokens": 528
+      },
+      "revised": {
+        "choice": "a2c4",
+        "engineBestProbability": 0.0288,
+        "inputTokens": 690,
+        "latencyMs": 124
+      }
+    },
+    {
+      "ply": 100,
+      "side": "black",
+      "before": "5k3/4P4/9/9/9/9/7p1/8B/4A4/2BAK4 b - - 1 84",
+      "engineBestMove": "h3g3",
+      "candidateMoves": [
+        "h3g3",
+        "h3i3",
+        "h3h2"
+      ],
+      "baseline": {
+        "choice": "h3i3",
+        "engineBestProbability": 0.2316,
+        "inputTokens": 387
+      },
+      "revised": {
+        "choice": "h3h2",
+        "engineBestProbability": 0.1341,
+        "inputTokens": 491,
+        "latencyMs": 85
+      }
+    },
+    {
+      "ply": 101,
+      "side": "red",
+      "before": "5k3/4P4/9/9/9/9/6p2/8B/4A4/2BAK4 w - - 0 85",
+      "engineBestMove": "i2g4",
+      "candidateMoves": [
+        "i2g4",
+        "c0e2",
+        "c0a2",
+        "i2g0",
+        "e1d2"
+      ],
+      "baseline": {
+        "choice": "e1d2",
+        "engineBestProbability": 0.0163,
+        "inputTokens": 527
+      },
+      "revised": {
+        "choice": "e1d2",
+        "engineBestProbability": 0.0379,
+        "inputTokens": 689,
+        "latencyMs": 129
+      }
+    }
+  ],
+  "note": "Same recorded positions and Pikafish candidates. Historical baseline choices are compared with fresh local Laya responses; this is a fixed-position comparison, not a new game or proof of global optimality."
+}

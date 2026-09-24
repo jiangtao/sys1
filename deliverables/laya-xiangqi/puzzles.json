@@ -1,0 +1,182 @@
+[
+  {
+    "id": "endgame-01",
+    "title": "车马炮交错",
+    "subtitle": "车马炮各有落点，先处理子力牵制再寻找主动手",
+    "difficulty": "挑战",
+    "theme": "车马炮交错",
+    "pieceCount": 22,
+    "fen": "2bak4/4a4/2nn2c2/4P4/6brp/p1R3P2/8P/4B1N2/4A4/3CKAB2 w - - 0 29",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": 0
+      },
+      "legalMoveCount": 36,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-02",
+    "title": "车炮转换",
+    "subtitle": "车炮联动压住中线，交换次序决定攻守方向",
+    "difficulty": "挑战",
+    "theme": "车炮转换",
+    "pieceCount": 21,
+    "fen": "2baka3/4nc3/9/p1p1p1RN1/8p/2PN2B2/4c4/3K3C1/5r3/3A1A3 w - - 12 31",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": -2
+      },
+      "legalMoveCount": 30,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-03",
+    "title": "双炮马战",
+    "subtitle": "双炮与马互相支援，多个候选都要计算应手",
+    "difficulty": "高手",
+    "theme": "双炮马战",
+    "pieceCount": 16,
+    "fen": "3a1a3/3k1c3/4c4/8p/2b6/2B6/P1C5P/1Cn1N4/9/3A1K3 w - - 2 38",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": -1
+      },
+      "legalMoveCount": 25,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-04",
+    "title": "双马争先",
+    "subtitle": "双马在中路争夺落点，兵线变化会改变攻守",
+    "difficulty": "挑战",
+    "theme": "双马争先",
+    "pieceCount": 19,
+    "fen": "2bak4/4a4/4b4/5n3/PP6p/7n1/4N1p1P/9/4A1N2/2BAK1B2 w - - 1 37",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": 6
+      },
+      "legalMoveCount": 25,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-05",
+    "title": "车炮残局",
+    "subtitle": "车炮与兵线互相牵制，交换次序决定残局方向",
+    "difficulty": "高手",
+    "theme": "车炮残局",
+    "pieceCount": 15,
+    "fen": "2b1ka3/4a4/4b4/2P3R2/p8/3r2C2/c3P4/4B4/9/4K1B2 w - - 0 33",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": 14
+      },
+      "legalMoveCount": 26,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-06",
+    "title": "马炮对抗",
+    "subtitle": "马炮与对方重子争夺通道，先手和安全都要兼顾",
+    "difficulty": "挑战",
+    "theme": "马炮对抗",
+    "pieceCount": 16,
+    "fen": "2bak4/9/5a3/5N3/2n2nb2/7c1/P8/3AB4/5C3/2BAK4 w - - 13 47",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": -302
+      },
+      "legalMoveCount": 22,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-07",
+    "title": "车马兵阵",
+    "subtitle": "车马兵分布在两翼，连续手段比单点进攻更关键",
+    "difficulty": "挑战",
+    "theme": "车马兵阵",
+    "pieceCount": 22,
+    "fen": "2baka3/2r6/2n1b1n2/p3p1N1p/9/6P2/P3P3P/9/9/2BAKAB1R w - - 0 18",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": -352
+      },
+      "legalMoveCount": 20,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-08",
+    "title": "车炮马攻防",
+    "subtitle": "车炮马争夺通道，先手与子力安全需要同时照顾",
+    "difficulty": "高手",
+    "theme": "车炮马攻防",
+    "pieceCount": 18,
+    "fen": "2Rak4/4a4/4P4/1C7/2n4rp/p5P2/2c5P/4B4/4A4/4KAB2 w - - 5 35",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": -26
+      },
+      "legalMoveCount": 36,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-09",
+    "title": "双马兵战",
+    "subtitle": "双马围绕兵线寻找突破，防止对方反先",
+    "difficulty": "挑战",
+    "theme": "双马兵战",
+    "pieceCount": 20,
+    "fen": "2bak2n1/4a4/9/8p/p1P1p1b2/9/P1n1N3P/6N2/9/2BAKAB2 w - - 0 22",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": 7
+      },
+      "legalMoveCount": 24,
+      "mateFound": false
+    }
+  },
+  {
+    "id": "endgame-10",
+    "title": "双马兵残局",
+    "subtitle": "双马与兵在少子局面中周旋，位置和节奏决定成败",
+    "difficulty": "高手",
+    "theme": "双马兵残局",
+    "pieceCount": 17,
+    "fen": "4k1b2/4a4/4ba3/P8/1P6N/2N6/6p1n/3A5/6n2/2BA1KB2 w - - 1 49",
+    "analysis": {
+      "depth": 10,
+      "score": {
+        "type": "cp",
+        "value": 23
+      },
+      "legalMoveCount": 23,
+      "mateFound": false
+    }
+  }
+]

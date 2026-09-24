@@ -1,0 +1,3414 @@
+{
+  "run_at_utc": "2026-09-21T09:23:07+00:00",
+  "base_url": "http://127.0.0.1:8765",
+  "threshold": 0.9,
+  "dataset": {
+    "case_count": 48,
+    "suite_counts": {
+      "agent": 16,
+      "game": 16,
+      "document": 16
+    },
+    "state_char_limit": 700
+  },
+  "http_failures": 0,
+  "latency_ms": {
+    "mean": 96.8,
+    "max": 766.0
+  },
+  "overall": {
+    "choice_exact_accuracy": 0.5625,
+    "choice_total": 48,
+    "noul_accuracy_at_0_5": 0.6042,
+    "noul_total": 48,
+    "noul_high_conf_coverage": 0.6458,
+    "noul_high_conf_accuracy": 0.6774,
+    "noul_high_conf_total": 31,
+    "score_mae": 0.6699,
+    "score_round_accuracy": 0.375,
+    "score_total": 48
+  },
+  "by_suite": {
+    "agent": {
+      "choice_exact_accuracy": 0.5,
+      "choice_total": 16,
+      "noul_accuracy_at_0_5": 0.5,
+      "noul_total": 16,
+      "noul_high_conf_coverage": 0.25,
+      "noul_high_conf_accuracy": 0.75,
+      "noul_high_conf_total": 4,
+      "score_mae": 0.5353,
+      "score_round_accuracy": 0.5,
+      "score_total": 16,
+      "title": "Agent 智能调度",
+      "case_count": 16
+    },
+    "game": {
+      "choice_exact_accuracy": 0.3125,
+      "choice_total": 16,
+      "noul_accuracy_at_0_5": 0.6875,
+      "noul_total": 16,
+      "noul_high_conf_coverage": 0.875,
+      "noul_high_conf_accuracy": 0.7143,
+      "noul_high_conf_total": 14,
+      "score_mae": 0.5818,
+      "score_round_accuracy": 0.4375,
+      "score_total": 16,
+      "title": "游戏高层决策",
+      "case_count": 16
+    },
+    "document": {
+      "choice_exact_accuracy": 0.875,
+      "choice_total": 16,
+      "noul_accuracy_at_0_5": 0.625,
+      "noul_total": 16,
+      "noul_high_conf_coverage": 0.8125,
+      "noul_high_conf_accuracy": 0.6154,
+      "noul_high_conf_total": 13,
+      "score_mae": 0.8924,
+      "score_round_accuracy": 0.1875,
+      "score_total": 16,
+      "title": "文档流程决策",
+      "case_count": 16
+    }
+  },
+  "typical_issues": [
+    {
+      "id": "agent-001",
+      "suite": "agent",
+      "question": "route",
+      "kind": "choice",
+      "expected": "research",
+      "actual": "implementation",
+      "confidence": 0.114
+    },
+    {
+      "id": "agent-003",
+      "suite": "agent",
+      "question": "route",
+      "kind": "choice",
+      "expected": "backend_test",
+      "actual": "implementation",
+      "confidence": 0.1437
+    },
+    {
+      "id": "agent-003",
+      "suite": "agent",
+      "question": "priority",
+      "kind": "score",
+      "expected": 2,
+      "actual": 1,
+      "raw_score": 1.1407,
+      "confidence": 0.4733
+    },
+    {
+      "id": "agent-003",
+      "suite": "agent",
+      "question": "needs_human",
+      "kind": "noul",
+      "expected": false,
+      "actual": true,
+      "probability": 0.5058,
+      "covered": false,
+      "confidence": 0.5058
+    },
+    {
+      "id": "agent-004",
+      "suite": "agent",
+      "question": "priority",
+      "kind": "score",
+      "expected": 2,
+      "actual": 1,
+      "raw_score": 0.9966,
+      "confidence": 0.4501
+    },
+    {
+      "id": "agent-005",
+      "suite": "agent",
+      "question": "needs_human",
+      "kind": "noul",
+      "expected": true,
+      "actual": false,
+      "probability": 0.2143,
+      "covered": false,
+      "confidence": 0.7857
+    },
+    {
+      "id": "agent-006",
+      "suite": "agent",
+      "question": "route",
+      "kind": "choice",
+      "expected": "review",
+      "actual": "implementation",
+      "confidence": 0.2481
+    },
+    {
+      "id": "agent-007",
+      "suite": "agent",
+      "question": "priority",
+      "kind": "score",
+      "expected": 2,
+      "actual": 1,
+      "raw_score": 0.9736,
+      "confidence": 0.4182
+    },
+    {
+      "id": "agent-007",
+      "suite": "agent",
+      "question": "needs_human",
+      "kind": "noul",
+      "expected": true,
+      "actual": false,
+      "probability": 0.0056,
+      "covered": true,
+      "confidence": 0.9944
+    },
+    {
+      "id": "agent-008",
+      "suite": "agent",
+      "question": "needs_human",
+      "kind": "noul",
+      "expected": false,
+      "actual": true,
+      "probability": 0.6512,
+      "covered": false,
+      "confidence": 0.6512
+    }
+  ],
+  "issues_total": 70,
+  "failures": [],
+  "results": [
+    {
+      "id": "agent-001",
+      "suite": "agent",
+      "elapsed_ms": 766.0,
+      "questions": {
+        "route": {
+          "expected": "research",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.1543,
+              "implementation": 0.3959,
+              "backend_test": 0.069,
+              "e2e_test": 0.1024,
+              "solution_design": 0.0872,
+              "review": 0.1273,
+              "main_agent": 0.0639
+            },
+            "confidence": 0.114,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": false
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.0323,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0804,
+              "1": 0.8069,
+              "2": 0.1127
+            },
+            "confidence": 0.434,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0323,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.1649,
+            "confidence": 0.8351,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.1649,
+          "predicted": false,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-002",
+      "suite": "agent",
+      "elapsed_ms": 153.2,
+      "questions": {
+        "route": {
+          "expected": "implementation",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.0074,
+              "implementation": 0.9227,
+              "backend_test": 0.0095,
+              "e2e_test": 0.0109,
+              "solution_design": 0.017,
+              "review": 0.0122,
+              "main_agent": 0.0204
+            },
+            "confidence": 0.7913,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": true
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.1153,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0546,
+              "1": 0.7755,
+              "2": 0.1699
+            },
+            "confidence": 0.4018,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1153,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0169,
+            "confidence": 0.9831,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0169,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-003",
+      "suite": "agent",
+      "elapsed_ms": 92.0,
+      "questions": {
+        "route": {
+          "expected": "backend_test",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.0401,
+              "implementation": 0.361,
+              "backend_test": 0.2561,
+              "e2e_test": 0.1271,
+              "solution_design": 0.0631,
+              "review": 0.0509,
+              "main_agent": 0.1017
+            },
+            "confidence": 0.1437,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": false
+        },
+        "priority": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.1407,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0285,
+              "1": 0.8024,
+              "2": 0.1691
+            },
+            "confidence": 0.4733,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1407,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.5058,
+            "confidence": 0.5058,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.5058,
+          "predicted": true,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "agent-004",
+      "suite": "agent",
+      "elapsed_ms": 110.9,
+      "questions": {
+        "route": {
+          "expected": "e2e_test",
+          "actual": {
+            "type": "choice",
+            "choice": "e2e_test",
+            "probabilities": {
+              "research": 0.0018,
+              "implementation": 0.0174,
+              "backend_test": 0.0351,
+              "e2e_test": 0.923,
+              "solution_design": 0.0024,
+              "review": 0.0055,
+              "main_agent": 0.0148
+            },
+            "confidence": 0.8053,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "e2e_test",
+          "correct": true
+        },
+        "priority": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 0.9966,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0936,
+              "1": 0.8163,
+              "2": 0.0901
+            },
+            "confidence": 0.4501,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.9966,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.1387,
+            "confidence": 0.8613,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.1387,
+          "predicted": false,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-005",
+      "suite": "agent",
+      "elapsed_ms": 115.7,
+      "questions": {
+        "route": {
+          "expected": "solution_design",
+          "actual": {
+            "type": "choice",
+            "choice": "solution_design",
+            "probabilities": {
+              "research": 0.0,
+              "implementation": 0.0015,
+              "backend_test": 0.0,
+              "e2e_test": 0.0,
+              "solution_design": 0.9983,
+              "review": 0.0,
+              "main_agent": 0.0001
+            },
+            "confidence": 0.993,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "solution_design",
+          "correct": true
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.2626,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0222,
+              "1": 0.6931,
+              "2": 0.2848
+            },
+            "confidence": 0.3663,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.2626,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.2143,
+            "confidence": 0.7857,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.2143,
+          "predicted": false,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "agent-006",
+      "suite": "agent",
+      "elapsed_ms": 110.1,
+      "questions": {
+        "route": {
+          "expected": "review",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.0345,
+              "implementation": 0.5082,
+              "backend_test": 0.0518,
+              "e2e_test": 0.083,
+              "solution_design": 0.0221,
+              "review": 0.1103,
+              "main_agent": 0.1901
+            },
+            "confidence": 0.2481,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": false
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 0.9874,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0768,
+              "1": 0.859,
+              "2": 0.0642
+            },
+            "confidence": 0.5412,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.9874,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0295,
+            "confidence": 0.9705,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0295,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-007",
+      "suite": "agent",
+      "elapsed_ms": 100.8,
+      "questions": {
+        "route": {
+          "expected": "main_agent",
+          "actual": {
+            "type": "choice",
+            "choice": "main_agent",
+            "probabilities": {
+              "research": 0.0221,
+              "implementation": 0.3595,
+              "backend_test": 0.0257,
+              "e2e_test": 0.0268,
+              "solution_design": 0.0991,
+              "review": 0.0112,
+              "main_agent": 0.4557
+            },
+            "confidence": 0.342,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "main_agent",
+          "correct": true
+        },
+        "priority": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 0.9736,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.1137,
+              "1": 0.7991,
+              "2": 0.0872
+            },
+            "confidence": 0.4182,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.9736,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0056,
+            "confidence": 0.9944,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0056,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "agent-008",
+      "suite": "agent",
+      "elapsed_ms": 78.6,
+      "questions": {
+        "route": {
+          "expected": "research",
+          "actual": {
+            "type": "choice",
+            "choice": "research",
+            "probabilities": {
+              "research": 0.3856,
+              "implementation": 0.1213,
+              "backend_test": 0.0833,
+              "e2e_test": 0.1117,
+              "solution_design": 0.0254,
+              "review": 0.2167,
+              "main_agent": 0.0561
+            },
+            "confidence": 0.1462,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "research",
+          "correct": true
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 0.9855,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0746,
+              "1": 0.8654,
+              "2": 0.0601
+            },
+            "confidence": 0.5562,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.9855,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.6512,
+            "confidence": 0.6512,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.6512,
+          "predicted": true,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "agent-009",
+      "suite": "agent",
+      "elapsed_ms": 77.1,
+      "questions": {
+        "route": {
+          "expected": "implementation",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.0008,
+              "implementation": 0.9778,
+              "backend_test": 0.005,
+              "e2e_test": 0.0045,
+              "solution_design": 0.003,
+              "review": 0.0011,
+              "main_agent": 0.0078
+            },
+            "confidence": 0.9273,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": true
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.1225,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0434,
+              "1": 0.7907,
+              "2": 0.1659
+            },
+            "confidence": 0.4357,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1225,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.8611,
+            "confidence": 0.8611,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.8611,
+          "predicted": true,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "agent-010",
+      "suite": "agent",
+      "elapsed_ms": 93.8,
+      "questions": {
+        "route": {
+          "expected": "e2e_test",
+          "actual": {
+            "type": "choice",
+            "choice": "e2e_test",
+            "probabilities": {
+              "research": 0.0064,
+              "implementation": 0.0265,
+              "backend_test": 0.0543,
+              "e2e_test": 0.8517,
+              "solution_design": 0.0056,
+              "review": 0.0275,
+              "main_agent": 0.028
+            },
+            "confidence": 0.6653,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "e2e_test",
+          "correct": true
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.1216,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.056,
+              "1": 0.7664,
+              "2": 0.1776
+            },
+            "confidence": 0.3881,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1216,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.771,
+            "confidence": 0.771,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.771,
+          "predicted": true,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "agent-011",
+      "suite": "agent",
+      "elapsed_ms": 80.7,
+      "questions": {
+        "route": {
+          "expected": "solution_design",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.0016,
+              "implementation": 0.4895,
+              "backend_test": 0.0059,
+              "e2e_test": 0.0049,
+              "solution_design": 0.4763,
+              "review": 0.0027,
+              "main_agent": 0.0191
+            },
+            "confidence": 0.5575,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": false
+        },
+        "priority": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.0256,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0474,
+              "1": 0.8797,
+              "2": 0.0729
+            },
+            "confidence": 0.5921,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0256,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.5987,
+            "confidence": 0.5987,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.5987,
+          "predicted": true,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-012",
+      "suite": "agent",
+      "elapsed_ms": 76.3,
+      "questions": {
+        "route": {
+          "expected": "backend_test",
+          "actual": {
+            "type": "choice",
+            "choice": "e2e_test",
+            "probabilities": {
+              "research": 0.0232,
+              "implementation": 0.0027,
+              "backend_test": 0.0325,
+              "e2e_test": 0.9216,
+              "solution_design": 0.001,
+              "review": 0.014,
+              "main_agent": 0.005
+            },
+            "confidence": 0.803,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "e2e_test",
+          "correct": false
+        },
+        "priority": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.0904,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0541,
+              "1": 0.8014,
+              "2": 0.1445
+            },
+            "confidence": 0.4404,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0904,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.1751,
+            "confidence": 0.8249,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.1751,
+          "predicted": false,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-013",
+      "suite": "agent",
+      "elapsed_ms": 79.0,
+      "questions": {
+        "route": {
+          "expected": "review",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.0075,
+              "implementation": 0.8901,
+              "backend_test": 0.0167,
+              "e2e_test": 0.0149,
+              "solution_design": 0.0071,
+              "review": 0.0311,
+              "main_agent": 0.0325
+            },
+            "confidence": 0.7296,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": false
+        },
+        "priority": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.0156,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0947,
+              "1": 0.795,
+              "2": 0.1103
+            },
+            "confidence": 0.4094,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0156,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0962,
+            "confidence": 0.9038,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0962,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-014",
+      "suite": "agent",
+      "elapsed_ms": 76.7,
+      "questions": {
+        "route": {
+          "expected": "main_agent",
+          "actual": {
+            "type": "choice",
+            "choice": "solution_design",
+            "probabilities": {
+              "research": 0.0647,
+              "implementation": 0.261,
+              "backend_test": 0.0518,
+              "e2e_test": 0.1335,
+              "solution_design": 0.3754,
+              "review": 0.0242,
+              "main_agent": 0.0894
+            },
+            "confidence": 0.1656,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "solution_design",
+          "correct": false
+        },
+        "priority": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.0277,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0905,
+              "1": 0.7912,
+              "2": 0.1183
+            },
+            "confidence": 0.4035,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0277,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.2608,
+            "confidence": 0.7392,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.2608,
+          "predicted": false,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "agent-015",
+      "suite": "agent",
+      "elapsed_ms": 81.4,
+      "questions": {
+        "route": {
+          "expected": "research",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.1414,
+              "implementation": 0.3297,
+              "backend_test": 0.0347,
+              "e2e_test": 0.0989,
+              "solution_design": 0.1036,
+              "review": 0.2731,
+              "main_agent": 0.0185
+            },
+            "confidence": 0.1514,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": false
+        },
+        "priority": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.0281,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0683,
+              "1": 0.8353,
+              "2": 0.0964
+            },
+            "confidence": 0.4911,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0281,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_human": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.5242,
+            "confidence": 0.5242,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.5242,
+          "predicted": true,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "agent-016",
+      "suite": "agent",
+      "elapsed_ms": 77.3,
+      "questions": {
+        "route": {
+          "expected": "implementation",
+          "actual": {
+            "type": "choice",
+            "choice": "implementation",
+            "probabilities": {
+              "research": 0.0147,
+              "implementation": 0.793,
+              "backend_test": 0.0181,
+              "e2e_test": 0.0301,
+              "solution_design": 0.0514,
+              "review": 0.0086,
+              "main_agent": 0.0841
+            },
+            "confidence": 0.5757,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "implementation",
+          "correct": true
+        },
+        "priority": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.0946,
+            "legend": {
+              "0": "低",
+              "1": "中",
+              "2": "高"
+            },
+            "probabilities": {
+              "0": 0.0535,
+              "1": 0.7983,
+              "2": 0.1482
+            },
+            "confidence": 0.4361,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0946,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_human": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.6,
+            "confidence": 0.6,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.6,
+          "predicted": true,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "game-001",
+      "suite": "game",
+      "elapsed_ms": 127.7,
+      "questions": {
+        "action": {
+          "expected": "进攻",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.1516,
+              "防守": 0.3739,
+              "撤退": 0.2271,
+              "求援": 0.0853,
+              "等待": 0.162
+            },
+            "confidence": 0.0709,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.0032,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.1021,
+              "1": 0.7926,
+              "2": 0.1053
+            },
+            "confidence": 0.4044,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0032,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0041,
+            "confidence": 0.9959,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0041,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-002",
+      "suite": "game",
+      "elapsed_ms": 74.5,
+      "questions": {
+        "action": {
+          "expected": "防守",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0001,
+              "防守": 0.9989,
+              "撤退": 0.0003,
+              "求援": 0.0001,
+              "等待": 0.0006
+            },
+            "confidence": 0.994,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": true
+        },
+        "danger": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 0.9572,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.1307,
+              "1": 0.7814,
+              "2": 0.0879
+            },
+            "confidence": 0.388,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.9572,
+          "predicted": 1,
+          "correct": true
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0064,
+            "confidence": 0.9936,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0064,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-003",
+      "suite": "game",
+      "elapsed_ms": 85.2,
+      "questions": {
+        "action": {
+          "expected": "撤退",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.1335,
+              "防守": 0.5365,
+              "撤退": 0.2196,
+              "求援": 0.0223,
+              "等待": 0.0881
+            },
+            "confidence": 0.2329,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.3875,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0471,
+              "1": 0.5183,
+              "2": 0.4346
+            },
+            "confidence": 0.2293,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.3875,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0335,
+            "confidence": 0.9665,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0335,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "game-004",
+      "suite": "game",
+      "elapsed_ms": 73.2,
+      "questions": {
+        "action": {
+          "expected": "求援",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0345,
+              "防守": 0.914,
+              "撤退": 0.0205,
+              "求援": 0.0187,
+              "等待": 0.0122
+            },
+            "confidence": 0.7474,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.1158,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0756,
+              "1": 0.733,
+              "2": 0.1914
+            },
+            "confidence": 0.327,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1158,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0055,
+            "confidence": 0.9945,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0055,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "game-005",
+      "suite": "game",
+      "elapsed_ms": 67.0,
+      "questions": {
+        "action": {
+          "expected": "等待",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0095,
+              "防守": 0.8977,
+              "撤退": 0.0192,
+              "求援": 0.0064,
+              "等待": 0.0671
+            },
+            "confidence": 0.7322,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 0.8009,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.2197,
+              "1": 0.7597,
+              "2": 0.0206
+            },
+            "confidence": 0.4341,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.8009,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0013,
+            "confidence": 0.9987,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0013,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-006",
+      "suite": "game",
+      "elapsed_ms": 76.2,
+      "questions": {
+        "action": {
+          "expected": "进攻",
+          "actual": {
+            "type": "choice",
+            "choice": "撤退",
+            "probabilities": {
+              "进攻": 0.2117,
+              "防守": 0.2608,
+              "撤退": 0.4595,
+              "求援": 0.027,
+              "等待": 0.041
+            },
+            "confidence": 0.214,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "撤退",
+          "correct": false
+        },
+        "danger": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.173,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0736,
+              "1": 0.6799,
+              "2": 0.2466
+            },
+            "confidence": 0.2722,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.173,
+          "predicted": 1,
+          "correct": true
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0161,
+            "confidence": 0.9839,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0161,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-007",
+      "suite": "game",
+      "elapsed_ms": 77.4,
+      "questions": {
+        "action": {
+          "expected": "防守",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0,
+              "防守": 0.9995,
+              "撤退": 0.0002,
+              "求援": 0.0001,
+              "等待": 0.0002
+            },
+            "confidence": 0.9971,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": true
+        },
+        "danger": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 0.9843,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.098,
+              "1": 0.8197,
+              "2": 0.0823
+            },
+            "confidence": 0.4573,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.9843,
+          "predicted": 1,
+          "correct": true
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0174,
+            "confidence": 0.9826,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0174,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-008",
+      "suite": "game",
+      "elapsed_ms": 66.9,
+      "questions": {
+        "action": {
+          "expected": "求援",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0162,
+              "防守": 0.752,
+              "撤退": 0.0261,
+              "求援": 0.1804,
+              "等待": 0.0254
+            },
+            "confidence": 0.5163,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 0.7908,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.2401,
+              "1": 0.7289,
+              "2": 0.031
+            },
+            "confidence": 0.3805,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.7908,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0169,
+            "confidence": 0.9831,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0169,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "game-009",
+      "suite": "game",
+      "elapsed_ms": 88.1,
+      "questions": {
+        "action": {
+          "expected": "等待",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0057,
+              "防守": 0.7054,
+              "撤退": 0.0066,
+              "求援": 0.0052,
+              "等待": 0.2771
+            },
+            "confidence": 0.5702,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 0.7082,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.308,
+              "1": 0.6758,
+              "2": 0.0162
+            },
+            "confidence": 0.3679,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.7082,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0051,
+            "confidence": 0.9949,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0051,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-010",
+      "suite": "game",
+      "elapsed_ms": 64.0,
+      "questions": {
+        "action": {
+          "expected": "撤退",
+          "actual": {
+            "type": "choice",
+            "choice": "撤退",
+            "probabilities": {
+              "进攻": 0.0685,
+              "防守": 0.1694,
+              "撤退": 0.6773,
+              "求援": 0.0311,
+              "等待": 0.0536
+            },
+            "confidence": 0.3704,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "撤退",
+          "correct": true
+        },
+        "danger": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.6351,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0115,
+              "1": 0.3419,
+              "2": 0.6466
+            },
+            "confidence": 0.3626,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.6351,
+          "predicted": 2,
+          "correct": true
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0363,
+            "confidence": 0.9637,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0363,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-011",
+      "suite": "game",
+      "elapsed_ms": 66.2,
+      "questions": {
+        "action": {
+          "expected": "进攻",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0922,
+              "防守": 0.7062,
+              "撤退": 0.1071,
+              "求援": 0.04,
+              "等待": 0.0545
+            },
+            "confidence": 0.3836,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.1707,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0747,
+              "1": 0.6799,
+              "2": 0.2454
+            },
+            "confidence": 0.271,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1707,
+          "predicted": 1,
+          "correct": true
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0188,
+            "confidence": 0.9812,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0188,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-012",
+      "suite": "game",
+      "elapsed_ms": 64.4,
+      "questions": {
+        "action": {
+          "expected": "防守",
+          "actual": {
+            "type": "choice",
+            "choice": "撤退",
+            "probabilities": {
+              "进攻": 0.0074,
+              "防守": 0.0589,
+              "撤退": 0.9077,
+              "求援": 0.005,
+              "等待": 0.0209
+            },
+            "confidence": 0.7524,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "撤退",
+          "correct": false
+        },
+        "danger": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 0.9517,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.1389,
+              "1": 0.7704,
+              "2": 0.0907
+            },
+            "confidence": 0.3694,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 0.9517,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.1273,
+            "confidence": 0.8727,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.1273,
+          "predicted": false,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "game-013",
+      "suite": "game",
+      "elapsed_ms": 66.1,
+      "questions": {
+        "action": {
+          "expected": "等待",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0292,
+              "防守": 0.7884,
+              "撤退": 0.0494,
+              "求援": 0.0138,
+              "等待": 0.1192
+            },
+            "confidence": 0.5329,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": false
+        },
+        "danger": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.0007,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0863,
+              "1": 0.8267,
+              "2": 0.087
+            },
+            "confidence": 0.4711,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0007,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0006,
+            "confidence": 0.9994,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0006,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-014",
+      "suite": "game",
+      "elapsed_ms": 72.9,
+      "questions": {
+        "action": {
+          "expected": "求援",
+          "actual": {
+            "type": "choice",
+            "choice": "求援",
+            "probabilities": {
+              "进攻": 0.0364,
+              "防守": 0.1031,
+              "撤退": 0.0401,
+              "求援": 0.7911,
+              "等待": 0.0294
+            },
+            "confidence": 0.5198,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "求援",
+          "correct": true
+        },
+        "danger": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.1941,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0491,
+              "1": 0.7077,
+              "2": 0.2432
+            },
+            "confidence": 0.3295,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1941,
+          "predicted": 1,
+          "correct": true
+        },
+        "use_item": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0276,
+            "confidence": 0.9724,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0276,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-015",
+      "suite": "game",
+      "elapsed_ms": 67.3,
+      "questions": {
+        "action": {
+          "expected": "进攻",
+          "actual": {
+            "type": "choice",
+            "choice": "撤退",
+            "probabilities": {
+              "进攻": 0.2266,
+              "防守": 0.2646,
+              "撤退": 0.4049,
+              "求援": 0.0604,
+              "等待": 0.0435
+            },
+            "confidence": 0.1549,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "撤退",
+          "correct": false
+        },
+        "danger": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.1481,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.0555,
+              "1": 0.7408,
+              "2": 0.2036
+            },
+            "confidence": 0.3566,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1481,
+          "predicted": 1,
+          "correct": true
+        },
+        "use_item": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.551,
+            "confidence": 0.551,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.551,
+          "predicted": true,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "game-016",
+      "suite": "game",
+      "elapsed_ms": 78.3,
+      "questions": {
+        "action": {
+          "expected": "防守",
+          "actual": {
+            "type": "choice",
+            "choice": "防守",
+            "probabilities": {
+              "进攻": 0.0027,
+              "防守": 0.8702,
+              "撤退": 0.0227,
+              "求援": 0.0019,
+              "等待": 0.1025
+            },
+            "confidence": 0.709,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "防守",
+          "correct": true
+        },
+        "danger": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.067,
+            "legend": {
+              "0": "安全",
+              "1": "危险",
+              "2": "致命"
+            },
+            "probabilities": {
+              "0": 0.1098,
+              "1": 0.7135,
+              "2": 0.1768
+            },
+            "confidence": 0.2811,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.067,
+          "predicted": 1,
+          "correct": false
+        },
+        "use_item": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0573,
+            "confidence": 0.9427,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0573,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "document-001",
+      "suite": "document",
+      "elapsed_ms": 89.8,
+      "questions": {
+        "document_type": {
+          "expected": "合同",
+          "actual": {
+            "type": "choice",
+            "choice": "合同",
+            "probabilities": {
+              "合同": 0.8291,
+              "发票": 0.0453,
+              "报告": 0.0087,
+              "简历": 0.0077,
+              "通知": 0.0066,
+              "申请单": 0.017,
+              "其他": 0.0857
+            },
+            "confidence": 0.6468,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "合同",
+          "correct": true
+        },
+        "risk": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.1194,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0763,
+              "1": 0.728,
+              "2": 0.1957
+            },
+            "confidence": 0.3204,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1194,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0,
+            "confidence": 1.0,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "document-002",
+      "suite": "document",
+      "elapsed_ms": 75.7,
+      "questions": {
+        "document_type": {
+          "expected": "发票",
+          "actual": {
+            "type": "choice",
+            "choice": "发票",
+            "probabilities": {
+              "合同": 0.0,
+              "发票": 1.0,
+              "报告": 0.0,
+              "简历": 0.0,
+              "通知": 0.0,
+              "申请单": 0.0,
+              "其他": 0.0
+            },
+            "confidence": 1.0,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "发票",
+          "correct": true
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.3045,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0496,
+              "1": 0.5962,
+              "2": 0.3542
+            },
+            "confidence": 0.2491,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.3045,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0303,
+            "confidence": 0.9697,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0303,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-003",
+      "suite": "document",
+      "elapsed_ms": 89.0,
+      "questions": {
+        "document_type": {
+          "expected": "报告",
+          "actual": {
+            "type": "choice",
+            "choice": "报告",
+            "probabilities": {
+              "合同": 0.0013,
+              "发票": 0.0011,
+              "报告": 0.9726,
+              "简历": 0.0024,
+              "通知": 0.0035,
+              "申请单": 0.0012,
+              "其他": 0.0178
+            },
+            "confidence": 0.9191,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "报告",
+          "correct": true
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.1984,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0643,
+              "1": 0.673,
+              "2": 0.2627
+            },
+            "confidence": 0.2772,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1984,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0002,
+            "confidence": 0.9998,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0002,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-004",
+      "suite": "document",
+      "elapsed_ms": 91.1,
+      "questions": {
+        "document_type": {
+          "expected": "简历",
+          "actual": {
+            "type": "choice",
+            "choice": "简历",
+            "probabilities": {
+              "合同": 0.0218,
+              "发票": 0.0094,
+              "报告": 0.0069,
+              "简历": 0.8284,
+              "通知": 0.0589,
+              "申请单": 0.0204,
+              "其他": 0.0541
+            },
+            "confidence": 0.6291,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "简历",
+          "correct": true
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.1349,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0432,
+              "1": 0.7788,
+              "2": 0.1781
+            },
+            "confidence": 0.4196,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1349,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.9138,
+            "confidence": 0.9138,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.9138,
+          "predicted": true,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "document-005",
+      "suite": "document",
+      "elapsed_ms": 90.8,
+      "questions": {
+        "document_type": {
+          "expected": "通知",
+          "actual": {
+            "type": "choice",
+            "choice": "通知",
+            "probabilities": {
+              "合同": 0.0,
+              "发票": 0.0,
+              "报告": 0.0,
+              "简历": 0.0,
+              "通知": 0.9999,
+              "申请单": 0.0,
+              "其他": 0.0
+            },
+            "confidence": 0.9991,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "通知",
+          "correct": true
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.2462,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0175,
+              "1": 0.7187,
+              "2": 0.2638
+            },
+            "confidence": 0.3995,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.2462,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0018,
+            "confidence": 0.9982,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0018,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-006",
+      "suite": "document",
+      "elapsed_ms": 79.0,
+      "questions": {
+        "document_type": {
+          "expected": "申请单",
+          "actual": {
+            "type": "choice",
+            "choice": "申请单",
+            "probabilities": {
+              "合同": 0.0181,
+              "发票": 0.0299,
+              "报告": 0.0048,
+              "简历": 0.0147,
+              "通知": 0.0105,
+              "申请单": 0.9078,
+              "其他": 0.0142
+            },
+            "confidence": 0.763,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "申请单",
+          "correct": true
+        },
+        "risk": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.4287,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0195,
+              "1": 0.5323,
+              "2": 0.4482
+            },
+            "confidence": 0.2971,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.4287,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.5661,
+            "confidence": 0.5661,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.5661,
+          "predicted": true,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-007",
+      "suite": "document",
+      "elapsed_ms": 70.2,
+      "questions": {
+        "document_type": {
+          "expected": "其他",
+          "actual": {
+            "type": "choice",
+            "choice": "其他",
+            "probabilities": {
+              "合同": 0.0657,
+              "发票": 0.0475,
+              "报告": 0.1675,
+              "简历": 0.0752,
+              "通知": 0.054,
+              "申请单": 0.1416,
+              "其他": 0.4486
+            },
+            "confidence": 0.1719,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "其他",
+          "correct": true
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.0135,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.1522,
+              "1": 0.6822,
+              "2": 0.1657
+            },
+            "confidence": 0.2306,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.0135,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.065,
+            "confidence": 0.935,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.065,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-008",
+      "suite": "document",
+      "elapsed_ms": 79.3,
+      "questions": {
+        "document_type": {
+          "expected": "合同",
+          "actual": {
+            "type": "choice",
+            "choice": "合同",
+            "probabilities": {
+              "合同": 0.6443,
+              "发票": 0.1239,
+              "报告": 0.0351,
+              "简历": 0.0204,
+              "通知": 0.0167,
+              "申请单": 0.0569,
+              "其他": 0.1027
+            },
+            "confidence": 0.3812,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "合同",
+          "correct": true
+        },
+        "risk": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.3815,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0091,
+              "1": 0.6003,
+              "2": 0.3906
+            },
+            "confidence": 0.3481,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.3815,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0,
+            "confidence": 1.0,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "document-009",
+      "suite": "document",
+      "elapsed_ms": 73.1,
+      "questions": {
+        "document_type": {
+          "expected": "报告",
+          "actual": {
+            "type": "choice",
+            "choice": "报告",
+            "probabilities": {
+              "合同": 0.0001,
+              "发票": 0.0001,
+              "报告": 0.9976,
+              "简历": 0.0007,
+              "通知": 0.0001,
+              "申请单": 0.0001,
+              "其他": 0.0014
+            },
+            "confidence": 0.9897,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "报告",
+          "correct": true
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.288,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0491,
+              "1": 0.6138,
+              "2": 0.3371
+            },
+            "confidence": 0.259,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.288,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0005,
+            "confidence": 0.9995,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0005,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-010",
+      "suite": "document",
+      "elapsed_ms": 81.1,
+      "questions": {
+        "document_type": {
+          "expected": "发票",
+          "actual": {
+            "type": "choice",
+            "choice": "发票",
+            "probabilities": {
+              "合同": 0.0001,
+              "发票": 0.9984,
+              "报告": 0.0001,
+              "简历": 0.0001,
+              "通知": 0.0001,
+              "申请单": 0.0001,
+              "其他": 0.0013
+            },
+            "confidence": 0.9932,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "发票",
+          "correct": true
+        },
+        "risk": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.3997,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0275,
+              "1": 0.5454,
+              "2": 0.4271
+            },
+            "confidence": 0.2785,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.3997,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.9714,
+            "confidence": 0.9714,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.9714,
+          "predicted": true,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-011",
+      "suite": "document",
+      "elapsed_ms": 69.0,
+      "questions": {
+        "document_type": {
+          "expected": "简历",
+          "actual": {
+            "type": "choice",
+            "choice": "简历",
+            "probabilities": {
+              "合同": 0.0846,
+              "发票": 0.1199,
+              "报告": 0.0996,
+              "简历": 0.49,
+              "通知": 0.0248,
+              "申请单": 0.1044,
+              "其他": 0.0768
+            },
+            "confidence": 0.1946,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "简历",
+          "correct": true
+        },
+        "risk": {
+          "expected": 1,
+          "actual": {
+            "type": "score",
+            "score": 1.3057,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0284,
+              "1": 0.6376,
+              "2": 0.3341
+            },
+            "confidence": 0.3134,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.3057,
+          "predicted": 1,
+          "correct": true
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.8149,
+            "confidence": 0.8149,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.8149,
+          "predicted": true,
+          "covered": false,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-012",
+      "suite": "document",
+      "elapsed_ms": 79.7,
+      "questions": {
+        "document_type": {
+          "expected": "申请单",
+          "actual": {
+            "type": "choice",
+            "choice": "申请单",
+            "probabilities": {
+              "合同": 0.0414,
+              "发票": 0.0178,
+              "报告": 0.0081,
+              "简历": 0.0085,
+              "通知": 0.0079,
+              "申请单": 0.8349,
+              "其他": 0.0813
+            },
+            "confidence": 0.6526,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "申请单",
+          "correct": true
+        },
+        "risk": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.2499,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0286,
+              "1": 0.6928,
+              "2": 0.2785
+            },
+            "confidence": 0.3519,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.2499,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.2433,
+            "confidence": 0.7567,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.2433,
+          "predicted": false,
+          "covered": false,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "document-013",
+      "suite": "document",
+      "elapsed_ms": 72.9,
+      "questions": {
+        "document_type": {
+          "expected": "通知",
+          "actual": {
+            "type": "choice",
+            "choice": "通知",
+            "probabilities": {
+              "合同": 0.0023,
+              "发票": 0.0018,
+              "报告": 0.0008,
+              "简历": 0.0017,
+              "通知": 0.9864,
+              "申请单": 0.003,
+              "其他": 0.0039
+            },
+            "confidence": 0.9513,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "通知",
+          "correct": true
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.3385,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0178,
+              "1": 0.6259,
+              "2": 0.3563
+            },
+            "confidence": 0.3331,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.3385,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.01,
+            "confidence": 0.99,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.01,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-014",
+      "suite": "document",
+      "elapsed_ms": 71.3,
+      "questions": {
+        "document_type": {
+          "expected": "其他",
+          "actual": {
+            "type": "choice",
+            "choice": "其他",
+            "probabilities": {
+              "合同": 0.032,
+              "发票": 0.0196,
+              "报告": 0.0145,
+              "简历": 0.0223,
+              "通知": 0.0036,
+              "申请单": 0.0057,
+              "其他": 0.9024
+            },
+            "confidence": 0.7557,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "其他",
+          "correct": true
+        },
+        "risk": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.1903,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0166,
+              "1": 0.7765,
+              "2": 0.2069
+            },
+            "confidence": 0.4625,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.1903,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0015,
+            "confidence": 0.9985,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0015,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    },
+    {
+      "id": "document-015",
+      "suite": "document",
+      "elapsed_ms": 75.5,
+      "questions": {
+        "document_type": {
+          "expected": "报告",
+          "actual": {
+            "type": "choice",
+            "choice": "通知",
+            "probabilities": {
+              "合同": 0.0444,
+              "发票": 0.0618,
+              "报告": 0.1968,
+              "简历": 0.2243,
+              "通知": 0.2777,
+              "申请单": 0.0161,
+              "其他": 0.1789
+            },
+            "confidence": 0.1286,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "通知",
+          "correct": false
+        },
+        "risk": {
+          "expected": 0,
+          "actual": {
+            "type": "score",
+            "score": 1.3377,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0166,
+              "1": 0.629,
+              "2": 0.3543
+            },
+            "confidence": 0.3379,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.3377,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": false,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0155,
+            "confidence": 0.9845,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0155,
+          "predicted": false,
+          "covered": true,
+          "correct": true
+        }
+      }
+    },
+    {
+      "id": "document-016",
+      "suite": "document",
+      "elapsed_ms": 73.1,
+      "questions": {
+        "document_type": {
+          "expected": "合同",
+          "actual": {
+            "type": "choice",
+            "choice": "其他",
+            "probabilities": {
+              "合同": 0.247,
+              "发票": 0.1599,
+              "报告": 0.034,
+              "简历": 0.0404,
+              "通知": 0.0244,
+              "申请单": 0.236,
+              "其他": 0.2584
+            },
+            "confidence": 0.1448,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "predicted": "其他",
+          "correct": false
+        },
+        "risk": {
+          "expected": 2,
+          "actual": {
+            "type": "score",
+            "score": 1.2153,
+            "legend": {
+              "0": "低风险",
+              "1": "需要确认",
+              "2": "高风险"
+            },
+            "probabilities": {
+              "0": 0.0263,
+              "1": 0.7322,
+              "2": 0.2416
+            },
+            "confidence": 0.3928,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "score": 1.2153,
+          "predicted": 1,
+          "correct": false
+        },
+        "needs_review": {
+          "expected": true,
+          "actual": {
+            "type": "noul",
+            "noul": 0.0127,
+            "confidence": 0.9873,
+            "action": {
+              "act_probability": 1.0
+            }
+          },
+          "probability": 0.0127,
+          "predicted": false,
+          "covered": true,
+          "correct": false
+        }
+      }
+    }
+  ]
+}

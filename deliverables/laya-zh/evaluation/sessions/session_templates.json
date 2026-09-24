@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "description": "本地历史 Agent 任务的固定多标签角色判断模板；模型请求只包含 input_text。",
+  "roles": [
+    "evidence_researcher",
+    "solution_designer",
+    "implementation_worker",
+    "backend_tester",
+    "e2e_tester",
+    "incremental_reviewer"
+  ],
+  "questions": {
+    "evidence_researcher": {
+      "type": "noul",
+      "instructions": "这项任务是否需要 evidence_researcher 先阅读多个文件、日志、历史资料或外部资料来收集事实？"
+    },
+    "solution_designer": {
+      "type": "noul",
+      "instructions": "这项任务是否需要 solution_designer 处理跨系统方案、架构取舍或重大技术决策？"
+    },
+    "implementation_worker": {
+      "type": "noul",
+      "instructions": "这项任务是否已经明确到可以交给 implementation_worker 独立修改代码、配置或文档？"
+    },
+    "backend_tester": {
+      "type": "noul",
+      "instructions": "这项任务是否需要 backend_tester 验证 API、数据、协议或跨组件后端链路？"
+    },
+    "e2e_tester": {
+      "type": "noul",
+      "instructions": "这项任务是否需要 e2e_tester 使用真实浏览器或端到端用户链路进行验证？"
+    },
+    "incremental_reviewer": {
+      "type": "noul",
+      "instructions": "这项任务是否需要 incremental_reviewer 对照固定基线独立检查增量改动？"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "description": "Laya 中文业务场景合成评测的固定问题模板。标签由人工先行定义，不根据模型输出调整。",
+  "suites": {
+    "agent": {
+      "title": "Agent 智能调度",
+      "questions": {
+        "route": {
+          "type": "choice",
+          "instructions": "这项任务下一步最适合交给哪个角色？",
+          "criteria": {
+            "research": "需要阅读多个文件、日志或历史资料来收集事实",
+            "implementation": "方案、文件范围和验收标准已经明确，可以直接修改实现",
+            "backend_test": "需要验证 API、数据库、消息或跨组件后端链路",
+            "e2e_test": "需要使用真实浏览器完成用户链路验证",
+            "solution_design": "涉及跨系统方案设计、架构取舍或重大技术决策",
+            "review": "已有固定基线，需要独立检查增量改动是否符合要求",
+            "main_agent": "需求、权限、范围或最终验收仍需要主 Agent 判断"
+          }
+        },
+        "priority": {
+          "type": "score",
+          "instructions": "这项任务的优先级如何？",
+          "criteria": ["低", "中", "高"]
+        },
+        "needs_human": {
+          "type": "noul",
+          "instructions": "这项任务是否需要人工确认后才能继续？"
+        }
+      }
+    },
+    "game": {
+      "title": "游戏高层决策",
+      "questions": {
+        "action": {
+          "type": "choice",
+          "instructions": "NPC 下一步应该采取什么高层策略？",
+          "criteria": {
+            "进攻": "当前战斗优势明显，适合主动攻击",
+            "防守": "当前位置安全，适合坚守并等待局势变化",
+            "撤退": "继续战斗的生存风险过高，应离开战区",
+            "求援": "附近存在可响应的友军，应请求支援",
+            "等待": "当前没有必要行动，保持观察或等待事件"
+          }
+        },
+        "danger": {
+          "type": "score",
+          "instructions": "当前战斗危险程度是多少？",
+          "criteria": ["安全", "危险", "致命"]
+        },
+        "use_item": {
+          "type": "noul",
+          "instructions": "NPC 是否应该立即使用治疗物品？"
+        }
+      }
+    },
+    "document": {
+      "title": "文档流程决策",
+      "questions": {
+        "document_type": {
+          "type": "choice",
+          "instructions": "这份文档最可能属于哪种类型？",
+          "criteria": {
+            "合同": "约定双方权利义务、付款、违约或签署事项",
+            "发票": "包含发票号码、开票方、金额或税额等票据字段",
+            "报告": "用于汇报事实、分析结果、指标或结论",
+            "简历": "介绍求职者经历、技能、教育或项目背景",
+            "通知": "向一组人员发布安排、变更或提醒",
+            "申请单": "请求审批资源、费用、权限或业务事项",
+            "其他": "不符合以上主要类型"
+          }
+        },
+        "risk": {
+          "type": "score",
+          "instructions": "这份文档当前操作的风险等级是多少？",
+          "criteria": ["低风险", "需要确认", "高风险"]
+        },
+        "needs_review": {
+          "type": "noul",
+          "instructions": "这份文档是否应该进入人工审核流程？"
+        }
+      }
+    }
+  }
+}

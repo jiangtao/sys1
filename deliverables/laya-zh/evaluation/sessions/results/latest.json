@@ -1,0 +1,1795 @@
+{
+  "run_at_utc": "2026-09-21T09:44:01+00:00",
+  "base_url": "http://127.0.0.1:8765",
+  "threshold": 0.9,
+  "dataset": {
+    "case_count": 20,
+    "source": "authorized local sessions, de-identified",
+    "max_input_chars": 700,
+    "input_char_max": 55,
+    "roles": [
+      "evidence_researcher",
+      "solution_designer",
+      "implementation_worker",
+      "backend_tester",
+      "e2e_tester",
+      "incremental_reviewer"
+    ]
+  },
+  "http_failures": 0,
+  "latency_ms": {
+    "mean": 105.2,
+    "max": 772.9
+  },
+  "metrics": {
+    "per_role": {
+      "evidence_researcher": {
+        "support": 10,
+        "predicted_positive": 7,
+        "tp": 4,
+        "fp": 3,
+        "fn": 6,
+        "precision": 0.5714,
+        "recall": 0.4,
+        "f1": 0.4706
+      },
+      "solution_designer": {
+        "support": 7,
+        "predicted_positive": 18,
+        "tp": 7,
+        "fp": 11,
+        "fn": 0,
+        "precision": 0.3889,
+        "recall": 1.0,
+        "f1": 0.56
+      },
+      "implementation_worker": {
+        "support": 5,
+        "predicted_positive": 16,
+        "tp": 5,
+        "fp": 11,
+        "fn": 0,
+        "precision": 0.3125,
+        "recall": 1.0,
+        "f1": 0.4762
+      },
+      "backend_tester": {
+        "support": 2,
+        "predicted_positive": 19,
+        "tp": 2,
+        "fp": 17,
+        "fn": 0,
+        "precision": 0.1053,
+        "recall": 1.0,
+        "f1": 0.1905
+      },
+      "e2e_tester": {
+        "support": 1,
+        "predicted_positive": 15,
+        "tp": 1,
+        "fp": 14,
+        "fn": 0,
+        "precision": 0.0667,
+        "recall": 1.0,
+        "f1": 0.125
+      },
+      "incremental_reviewer": {
+        "support": 1,
+        "predicted_positive": 8,
+        "tp": 1,
+        "fp": 7,
+        "fn": 0,
+        "precision": 0.125,
+        "recall": 1.0,
+        "f1": 0.2222
+      }
+    },
+    "micro_precision": 0.241,
+    "micro_recall": 0.7692,
+    "micro_f1": 0.367,
+    "macro_f1": 0.3407,
+    "exact_role_set_match": 0.05,
+    "exact_role_set_match_count": 1,
+    "main_fallback_accuracy": 0.7,
+    "main_fallback_count": 6,
+    "high_conf_coverage": 0.2,
+    "high_conf_coverage_accuracy": 0.3333,
+    "high_conf_total": 24,
+    "high_conf_correct": 8,
+    "label_difference_case_count": 11,
+    "label_difference_role_count": 14,
+    "label_differences": [
+      {
+        "id": "s01",
+        "actual_roles": [
+          "evidence_researcher"
+        ],
+        "recommended_roles": [
+          "evidence_researcher",
+          "solution_designer"
+        ],
+        "symmetric_difference": [
+          "solution_designer"
+        ]
+      },
+      {
+        "id": "s03",
+        "actual_roles": [
+          "evidence_researcher"
+        ],
+        "recommended_roles": [
+          "evidence_researcher",
+          "solution_designer"
+        ],
+        "symmetric_difference": [
+          "solution_designer"
+        ]
+      },
+      {
+        "id": "s07",
+        "actual_roles": [
+          "evidence_researcher",
+          "solution_designer"
+        ],
+        "recommended_roles": [
+          "evidence_researcher",
+          "implementation_worker",
+          "solution_designer"
+        ],
+        "symmetric_difference": [
+          "implementation_worker"
+        ]
+      },
+      {
+        "id": "s09",
+        "actual_roles": [],
+        "recommended_roles": [
+          "evidence_researcher"
+        ],
+        "symmetric_difference": [
+          "evidence_researcher"
+        ]
+      },
+      {
+        "id": "s10",
+        "actual_roles": [],
+        "recommended_roles": [
+          "implementation_worker",
+          "solution_designer"
+        ],
+        "symmetric_difference": [
+          "implementation_worker",
+          "solution_designer"
+        ]
+      },
+      {
+        "id": "s11",
+        "actual_roles": [
+          "e2e_tester",
+          "evidence_researcher",
+          "implementation_worker",
+          "solution_designer"
+        ],
+        "recommended_roles": [
+          "backend_tester",
+          "evidence_researcher",
+          "implementation_worker",
+          "solution_designer"
+        ],
+        "symmetric_difference": [
+          "backend_tester",
+          "e2e_tester"
+        ]
+      },
+      {
+        "id": "s12",
+        "actual_roles": [
+          "incremental_reviewer"
+        ],
+        "recommended_roles": [
+          "implementation_worker",
+          "incremental_reviewer"
+        ],
+        "symmetric_difference": [
+          "implementation_worker"
+        ]
+      },
+      {
+        "id": "s14",
+        "actual_roles": [
+          "evidence_researcher"
+        ],
+        "recommended_roles": [
+          "backend_tester",
+          "evidence_researcher"
+        ],
+        "symmetric_difference": [
+          "backend_tester"
+        ]
+      },
+      {
+        "id": "s16",
+        "actual_roles": [
+          "e2e_tester"
+        ],
+        "recommended_roles": [
+          "e2e_tester",
+          "implementation_worker"
+        ],
+        "symmetric_difference": [
+          "implementation_worker"
+        ]
+      },
+      {
+        "id": "s19",
+        "actual_roles": [],
+        "recommended_roles": [
+          "solution_designer"
+        ],
+        "symmetric_difference": [
+          "solution_designer"
+        ]
+      },
+      {
+        "id": "s20",
+        "actual_roles": [],
+        "recommended_roles": [
+          "evidence_researcher",
+          "solution_designer"
+        ],
+        "symmetric_difference": [
+          "evidence_researcher",
+          "solution_designer"
+        ]
+      }
+    ]
+  },
+  "typical_issues": [
+    {
+      "id": "s02",
+      "role": "evidence_researcher",
+      "kind": "role_misprediction",
+      "gold": true,
+      "predicted": false,
+      "probability": 0.1661,
+      "confidence": 0.8339
+    },
+    {
+      "id": "s02",
+      "role": "solution_designer",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.7575,
+      "confidence": 0.7575
+    },
+    {
+      "id": "s02",
+      "role": "implementation_worker",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.7843,
+      "confidence": 0.7843
+    },
+    {
+      "id": "s02",
+      "role": "backend_tester",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.8817,
+      "confidence": 0.8817
+    },
+    {
+      "id": "s02",
+      "role": "e2e_tester",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.9144,
+      "confidence": 0.9144
+    },
+    {
+      "id": "s02",
+      "role": "incremental_reviewer",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.7233,
+      "confidence": 0.7233
+    },
+    {
+      "id": "s03",
+      "role": "evidence_researcher",
+      "kind": "role_misprediction",
+      "gold": true,
+      "predicted": false,
+      "probability": 0.4617,
+      "confidence": 0.5383
+    },
+    {
+      "id": "s03",
+      "role": "implementation_worker",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.5182,
+      "confidence": 0.5182
+    },
+    {
+      "id": "s03",
+      "role": "backend_tester",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.7586,
+      "confidence": 0.7586
+    },
+    {
+      "id": "s03",
+      "role": "e2e_tester",
+      "kind": "role_misprediction",
+      "gold": false,
+      "predicted": true,
+      "probability": 0.959,
+      "confidence": 0.959
+    }
+  ],
+  "issues_total": 69,
+  "failures": [],
+  "results": [
+    {
+      "id": "s01",
+      "source_thread_id": "local-s01",
+      "gold_roles": [
+        "evidence_researcher",
+        "solution_designer"
+      ],
+      "predicted_roles": [
+        "evidence_researcher",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": true,
+      "actual_roles": [
+        "evidence_researcher"
+      ],
+      "actual_vs_recommended_diff": [
+        "solution_designer"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 772.9,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.58,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.58
+        },
+        "solution_designer": {
+          "gold": true,
+          "probability": 0.5415,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5415
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.2802,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7198
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.4864,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5136
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.0038,
+          "predicted": false,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.9962
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.4347,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5653
+        }
+      }
+    },
+    {
+      "id": "s02",
+      "source_thread_id": "local-s02",
+      "gold_roles": [
+        "evidence_researcher"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "evidence_researcher"
+      ],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 99.3,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.1661,
+          "predicted": false,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8339
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.7575,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7575
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.7843,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7843
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.8817,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8817
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.9144,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9144
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.7233,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7233
+        }
+      }
+    },
+    {
+      "id": "s03",
+      "source_thread_id": "local-s03",
+      "gold_roles": [
+        "evidence_researcher",
+        "solution_designer"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "evidence_researcher"
+      ],
+      "actual_vs_recommended_diff": [
+        "solution_designer"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 71.5,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.4617,
+          "predicted": false,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.5383
+        },
+        "solution_designer": {
+          "gold": true,
+          "probability": 0.8693,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.8693
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.5182,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.5182
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.7586,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7586
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.959,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.959
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.4188,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5812
+        }
+      }
+    },
+    {
+      "id": "s04",
+      "source_thread_id": "local-s04",
+      "gold_roles": [
+        "evidence_researcher"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "evidence_researcher"
+      ],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 68.3,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.0801,
+          "predicted": false,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9199
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.6394,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6394
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.7096,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7096
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.6885,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6885
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.4432,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5568
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.3842,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.6158
+        }
+      }
+    },
+    {
+      "id": "s05",
+      "source_thread_id": "local-s05",
+      "gold_roles": [
+        "evidence_researcher"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "evidence_researcher",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "evidence_researcher"
+      ],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 69.8,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.7839,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7839
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.897,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.897
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.2729,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7271
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.9005,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9005
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 1.0,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 1.0
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.7507,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7507
+        }
+      }
+    },
+    {
+      "id": "s06",
+      "source_thread_id": "local-s06",
+      "gold_roles": [],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "evidence_researcher",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": true,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 69.8,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.8824,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8824
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.7629,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7629
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.6451,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6451
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.7951,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7951
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.6652,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6652
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.2138,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7862
+        }
+      }
+    },
+    {
+      "id": "s07",
+      "source_thread_id": "local-s07",
+      "gold_roles": [
+        "evidence_researcher",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "evidence_researcher",
+        "solution_designer"
+      ],
+      "actual_vs_recommended_diff": [
+        "implementation_worker"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 70.7,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.0248,
+          "predicted": false,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9752
+        },
+        "solution_designer": {
+          "gold": true,
+          "probability": 0.7366,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7366
+        },
+        "implementation_worker": {
+          "gold": true,
+          "probability": 0.768,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.768
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.5887,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.5887
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.4925,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5075
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.4161,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5839
+        }
+      }
+    },
+    {
+      "id": "s08",
+      "source_thread_id": "local-s08",
+      "gold_roles": [],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "evidence_researcher",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": true,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 70.9,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.9515,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9515
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.8414,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8414
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.2803,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7197
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.949,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.949
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.9752,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9752
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.9042,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9042
+        }
+      }
+    },
+    {
+      "id": "s09",
+      "source_thread_id": "local-s09",
+      "gold_roles": [
+        "evidence_researcher"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "evidence_researcher",
+        "implementation_worker"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [
+        "evidence_researcher"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 68.0,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.5542,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5542
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.2762,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7238
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.6238,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6238
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.7484,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7484
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.8792,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8792
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.1595,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.8405
+        }
+      }
+    },
+    {
+      "id": "s10",
+      "source_thread_id": "local-s10",
+      "gold_roles": [
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 69.9,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.1979,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.8021
+        },
+        "solution_designer": {
+          "gold": true,
+          "probability": 0.8921,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.8921
+        },
+        "implementation_worker": {
+          "gold": true,
+          "probability": 0.7947,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7947
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.818,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.818
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.7379,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7379
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.2356,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7644
+        }
+      }
+    },
+    {
+      "id": "s11",
+      "source_thread_id": "local-s11",
+      "gold_roles": [
+        "backend_tester",
+        "evidence_researcher",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "e2e_tester",
+        "evidence_researcher",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "actual_vs_recommended_diff": [
+        "backend_tester",
+        "e2e_tester"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 74.2,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.2251,
+          "predicted": false,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7749
+        },
+        "solution_designer": {
+          "gold": true,
+          "probability": 0.6894,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.6894
+        },
+        "implementation_worker": {
+          "gold": true,
+          "probability": 0.7133,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7133
+        },
+        "backend_tester": {
+          "gold": true,
+          "probability": 0.8265,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.8265
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.964,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.964
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.2876,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7124
+        }
+      }
+    },
+    {
+      "id": "s12",
+      "source_thread_id": "local-s12",
+      "gold_roles": [
+        "implementation_worker",
+        "incremental_reviewer"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "incremental_reviewer"
+      ],
+      "actual_vs_recommended_diff": [
+        "implementation_worker"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 75.1,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.2518,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7482
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.7864,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7864
+        },
+        "implementation_worker": {
+          "gold": true,
+          "probability": 0.8164,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.8164
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.8219,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8219
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.8857,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8857
+        },
+        "incremental_reviewer": {
+          "gold": true,
+          "probability": 0.5118,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5118
+        }
+      }
+    },
+    {
+      "id": "s13",
+      "source_thread_id": "local-s13",
+      "gold_roles": [],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": true,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 69.8,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.0402,
+          "predicted": false,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.9598
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.7413,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7413
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.886,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.886
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.6936,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6936
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.8192,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8192
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.5251,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.5251
+        }
+      }
+    },
+    {
+      "id": "s14",
+      "source_thread_id": "local-s14",
+      "gold_roles": [
+        "backend_tester",
+        "evidence_researcher"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "evidence_researcher",
+        "implementation_worker",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "evidence_researcher"
+      ],
+      "actual_vs_recommended_diff": [
+        "backend_tester"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 66.2,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.5206,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5206
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.6325,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6325
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.7647,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7647
+        },
+        "backend_tester": {
+          "gold": true,
+          "probability": 0.7756,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7756
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.6785,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6785
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.5097,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.5097
+        }
+      }
+    },
+    {
+      "id": "s15",
+      "source_thread_id": "local-s15",
+      "gold_roles": [],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": true,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 66.0,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.4192,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5808
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.6579,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6579
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.6893,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6893
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.894,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.894
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.9604,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9604
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.1124,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.8876
+        }
+      }
+    },
+    {
+      "id": "s16",
+      "source_thread_id": "local-s16",
+      "gold_roles": [
+        "e2e_tester",
+        "implementation_worker"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [
+        "e2e_tester"
+      ],
+      "actual_vs_recommended_diff": [
+        "implementation_worker"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 64.9,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.0455,
+          "predicted": false,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.9545
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.6228,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6228
+        },
+        "implementation_worker": {
+          "gold": true,
+          "probability": 0.5998,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5998
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.7164,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7164
+        },
+        "e2e_tester": {
+          "gold": true,
+          "probability": 0.9852,
+          "predicted": true,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.9852
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.6126,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6126
+        }
+      }
+    },
+    {
+      "id": "s17",
+      "source_thread_id": "local-s17",
+      "gold_roles": [],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "implementation_worker"
+      ],
+      "gold_main_fallback": true,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 59.7,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.0534,
+          "predicted": false,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.9466
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.2332,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7668
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.5068,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.5068
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.8345,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8345
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.7331,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7331
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.041,
+          "predicted": false,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.959
+        }
+      }
+    },
+    {
+      "id": "s18",
+      "source_thread_id": "local-s18",
+      "gold_roles": [],
+      "predicted_roles": [
+        "backend_tester",
+        "e2e_tester",
+        "evidence_researcher",
+        "implementation_worker",
+        "incremental_reviewer",
+        "solution_designer"
+      ],
+      "gold_main_fallback": true,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [],
+      "label_differs": false,
+      "elapsed_ms": 63.9,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.6462,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6462
+        },
+        "solution_designer": {
+          "gold": false,
+          "probability": 0.9315,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9315
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.9501,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9501
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.9333,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9333
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.9833,
+          "predicted": true,
+          "covered": true,
+          "correct": false,
+          "confidence": 0.9833
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.8673,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8673
+        }
+      }
+    },
+    {
+      "id": "s19",
+      "source_thread_id": "local-s19",
+      "gold_roles": [
+        "solution_designer"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "implementation_worker",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [
+        "solution_designer"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 66.4,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": false,
+          "probability": 0.0716,
+          "predicted": false,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.9284
+        },
+        "solution_designer": {
+          "gold": true,
+          "probability": 0.9474,
+          "predicted": true,
+          "covered": true,
+          "correct": true,
+          "confidence": 0.9474
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.7768,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.7768
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.6976,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.6976
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.4907,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5093
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.3961,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.6039
+        }
+      }
+    },
+    {
+      "id": "s20",
+      "source_thread_id": "local-s20",
+      "gold_roles": [
+        "evidence_researcher",
+        "solution_designer"
+      ],
+      "predicted_roles": [
+        "backend_tester",
+        "solution_designer"
+      ],
+      "gold_main_fallback": false,
+      "predicted_main_fallback": false,
+      "exact_role_set_match": false,
+      "actual_roles": [],
+      "actual_vs_recommended_diff": [
+        "evidence_researcher",
+        "solution_designer"
+      ],
+      "label_differs": true,
+      "elapsed_ms": 67.1,
+      "predictions": {
+        "evidence_researcher": {
+          "gold": true,
+          "probability": 0.1738,
+          "predicted": false,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.8262
+        },
+        "solution_designer": {
+          "gold": true,
+          "probability": 0.7325,
+          "predicted": true,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.7325
+        },
+        "implementation_worker": {
+          "gold": false,
+          "probability": 0.482,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.518
+        },
+        "backend_tester": {
+          "gold": false,
+          "probability": 0.554,
+          "predicted": true,
+          "covered": false,
+          "correct": false,
+          "confidence": 0.554
+        },
+        "e2e_tester": {
+          "gold": false,
+          "probability": 0.3364,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.6636
+        },
+        "incremental_reviewer": {
+          "gold": false,
+          "probability": 0.4198,
+          "predicted": false,
+          "covered": false,
+          "correct": true,
+          "confidence": 0.5802
+        }
+      }
+    }
+  ]
+}

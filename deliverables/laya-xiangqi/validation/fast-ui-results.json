@@ -1,0 +1,59 @@
+{
+  "browser": "Isolated Headless Chrome",
+  "plies": 7,
+  "meanResponseIntervalMs": 466,
+  "intervalsMs": [
+    457,
+    424,
+    513,
+    480,
+    438,
+    483
+  ],
+  "timings": [
+    {
+      "searchMs": 300,
+      "layaMs": 1087,
+      "totalMs": 1387
+    },
+    {
+      "searchMs": 301,
+      "layaMs": 113,
+      "totalMs": 414
+    },
+    {
+      "searchMs": 300,
+      "layaMs": 93,
+      "totalMs": 393
+    },
+    {
+      "searchMs": 301,
+      "layaMs": 171,
+      "totalMs": 472
+    },
+    {
+      "searchMs": 299,
+      "layaMs": 140,
+      "totalMs": 440
+    },
+    {
+      "searchMs": 300,
+      "layaMs": 96,
+      "totalMs": 397
+    },
+    {
+      "searchMs": 300,
+      "layaMs": 151,
+      "totalMs": 452
+    }
+  ],
+  "checks": [
+    "0.3s default replaces prior preference on upgrade",
+    "No extra inter-move delay",
+    "Pause stops subsequent requests",
+    "Every ply calls real Laya and retains five branches/full PV",
+    "Raw response lazy expansion works",
+    "Hidden log and puzzle views still open correctly",
+    "No browser exceptions"
+  ]
+}

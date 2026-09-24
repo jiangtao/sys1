@@ -1,0 +1,295 @@
+{
+  "version": "1.0",
+  "description": "Laya 中文业务场景合成评测集；期望标签在运行模型前由人工定义。",
+  "label_policy": "标签描述业务期望，不是模型输出；边界样本故意保留灰度，不能据此宣称生产精度。",
+  "cases": [
+    {
+      "id": "agent-001",
+      "suite": "agent",
+      "state": {"task": "请先阅读仓库里的部署说明、最近日志和历史问题记录，整理当前故障的事实与复现条件。", "context": "现象尚未复现，没有明确修改方案。"},
+      "expected": {"route": "research", "priority": 1, "needs_human": false}
+    },
+    {
+      "id": "agent-002",
+      "suite": "agent",
+      "state": {"task": "按已经确认的方案，把 parser.py 的字段名从 old_id 改为 item_id，并补上对应单元测试。", "context": "文件范围、方案和验收标准都已写在任务单中。"},
+      "expected": {"route": "implementation", "priority": 1, "needs_human": false}
+    },
+    {
+      "id": "agent-003",
+      "suite": "agent",
+      "state": {"task": "支付接口偶发超时，请检查修复后的 API、数据库写入和消息队列消费，验证完整下单链路。", "context": "已有修复分支，目标是测试环境验收。"},
+      "expected": {"route": "backend_test", "priority": 2, "needs_human": false}
+    },
+    {
+      "id": "agent-004",
+      "suite": "agent",
+      "state": {"task": "验证用户从登录、搜索商品、加入购物车到提交订单的真实浏览器流程，并记录页面行为。", "context": "测试环境账号和验收步骤已经准备好。"},
+      "expected": {"route": "e2e_test", "priority": 2, "needs_human": false}
+    },
+    {
+      "id": "agent-005",
+      "suite": "agent",
+      "state": {"task": "为本地决策模型接入客服系统设计一套服务方案，比较同步 API、消息队列、缓存和失败回退的取舍。", "context": "需要在多个系统边界和部署方式之间做选择。"},
+      "expected": {"route": "solution_design", "priority": 1, "needs_human": true}
+    },
+    {
+      "id": "agent-006",
+      "suite": "agent",
+      "state": {"task": "请对照已确认的接口契约和验收清单，独立检查本次增量改动是否遗漏错误处理。", "context": "实现已经完成，基线文档和 diff 均可读取。"},
+      "expected": {"route": "review", "priority": 1, "needs_human": false}
+    },
+    {
+      "id": "agent-007",
+      "suite": "agent",
+      "state": {"task": "把线上客户资料导出后发送给外部合作方，顺便清理旧数据。", "context": "没有说明授权范围、收件人、保留要求，也没有确认删除边界。"},
+      "expected": {"route": "main_agent", "priority": 2, "needs_human": true}
+    },
+    {
+      "id": "agent-008",
+      "suite": "agent",
+      "state": {"task": "查找最近三次发布的错误日志、相关 issue 和回滚记录，判断缓存命中率下降从何时开始。", "context": "目前需要事实调查，尚未进入修改阶段。"},
+      "expected": {"route": "research", "priority": 1, "needs_human": false}
+    },
+    {
+      "id": "agent-009",
+      "suite": "agent",
+      "state": {"task": "按照已批准的字段映射更新订单导入脚本，并运行已有测试。", "context": "只改 scripts/import_orders.py，测试命令和通过标准已经给出。"},
+      "expected": {"route": "implementation", "priority": 1, "needs_human": false}
+    },
+    {
+      "id": "agent-010",
+      "suite": "agent",
+      "state": {"task": "在浏览器中验证搜索无结果、筛选、分页和返回上一页后的展示是否符合验收截图。", "context": "页面流程是本任务的主要验收对象，环境为测试站点。"},
+      "expected": {"route": "e2e_test", "priority": 1, "needs_human": false}
+    },
+    {
+      "id": "agent-011",
+      "suite": "agent",
+      "state": {"task": "设计订单、库存和异步通知跨服务的一致性方案，决定事务边界、重试策略以及重复消息处理方式。", "context": "目前只有目标，没有确定架构；错误会影响多个系统。"},
+      "expected": {"route": "solution_design", "priority": 2, "needs_human": true}
+    },
+    {
+      "id": "agent-012",
+      "suite": "agent",
+      "state": {"task": "验证迁移脚本在空库、已有数据和重复执行三种情况下的结果，并检查 API 读写是否兼容。", "context": "目标环境是隔离的预发布环境，测试数据为合成数据。"},
+      "expected": {"route": "backend_test", "priority": 2, "needs_human": false}
+    },
+    {
+      "id": "agent-013",
+      "suite": "agent",
+      "state": {"task": "根据固定的代码规范和测试基线，检查一个只改注释和日志级别的小补丁。", "context": "改动已完成，要求独立指出是否超出范围。"},
+      "expected": {"route": "review", "priority": 0, "needs_human": false}
+    },
+    {
+      "id": "agent-014",
+      "suite": "agent",
+      "state": {"task": "马上把生产数据库中一批用户记录永久删除，具体哪些记录由你自行判断。", "context": "任务没有给出授权、筛选条件、备份或恢复方案。"},
+      "expected": {"route": "main_agent", "priority": 2, "needs_human": true}
+    },
+    {
+      "id": "agent-015",
+      "suite": "agent",
+      "state": {"task": "请分析这个 bug 并顺手改好：用户偶尔看不到最新状态。", "context": "没有复现步骤、日志、文件范围或明确验收标准。"},
+      "expected": {"route": "research", "priority": 1, "needs_human": true}
+    },
+    {
+      "id": "agent-016",
+      "suite": "agent",
+      "state": {"task": "在已确认的文档结构中补充 README 的本地启动示例，并只修改 docs/README.md。", "context": "内容、文件范围和检查方式已明确，不涉及外部系统。"},
+      "expected": {"route": "implementation", "priority": 0, "needs_human": false}
+    },
+    {
+      "id": "game-001",
+      "suite": "game",
+      "state": {"npc": "侦察兵", "health": 100, "ammo": 30, "enemy_count": 1, "nearby_allies": 2, "cover": false, "objective": "清理孤立目标", "recent_events": ["敌人暴露"]},
+      "expected": {"action": "进攻", "danger": 0, "use_item": false}
+    },
+    {
+      "id": "game-002",
+      "suite": "game",
+      "state": {"npc": "守卫", "health": 82, "ammo": 18, "enemy_count": 3, "nearby_allies": 1, "cover": true, "objective": "守住入口", "recent_events": ["敌人接近"]},
+      "expected": {"action": "防守", "danger": 1, "use_item": false}
+    },
+    {
+      "id": "game-003",
+      "suite": "game",
+      "state": {"npc": "侦察兵", "health": 14, "ammo": 3, "enemy_count": 5, "nearby_allies": 0, "cover": false, "objective": "存活", "recent_events": ["护甲破损", "出口在后方"]},
+      "expected": {"action": "撤退", "danger": 2, "use_item": true}
+    },
+    {
+      "id": "game-004",
+      "suite": "game",
+      "state": {"npc": "队长", "health": 32, "ammo": 8, "enemy_count": 6, "nearby_allies": 4, "cover": true, "objective": "守住据点", "recent_events": ["重装敌人出现", "无线电可用"]},
+      "expected": {"action": "求援", "danger": 2, "use_item": true}
+    },
+    {
+      "id": "game-005",
+      "suite": "game",
+      "state": {"npc": "巡逻员", "health": 96, "ammo": 20, "enemy_count": 0, "nearby_allies": 1, "cover": true, "objective": "观察走廊", "recent_events": ["区域安静"]},
+      "expected": {"action": "等待", "danger": 0, "use_item": false}
+    },
+    {
+      "id": "game-006",
+      "suite": "game",
+      "state": {"npc": "突击手", "health": 68, "ammo": 24, "enemy_count": 2, "nearby_allies": 3, "cover": false, "objective": "夺回房间", "recent_events": ["敌人数量较少"]},
+      "expected": {"action": "进攻", "danger": 1, "use_item": false}
+    },
+    {
+      "id": "game-007",
+      "suite": "game",
+      "state": {"npc": "守卫", "health": 45, "ammo": 12, "enemy_count": 2, "nearby_allies": 0, "cover": true, "objective": "等待增援", "recent_events": ["弹药有限"]},
+      "expected": {"action": "防守", "danger": 1, "use_item": false}
+    },
+    {
+      "id": "game-008",
+      "suite": "game",
+      "state": {"npc": "队长", "health": 28, "ammo": 5, "enemy_count": 4, "nearby_allies": 5, "cover": false, "objective": "拖延敌人", "recent_events": ["支援信号已发出"]},
+      "expected": {"action": "求援", "danger": 2, "use_item": true}
+    },
+    {
+      "id": "game-009",
+      "suite": "game",
+      "state": {"npc": "商队护卫", "health": 76, "ammo": 16, "enemy_count": 0, "nearby_allies": 2, "cover": true, "objective": "等待商队出发", "recent_events": ["道路未发现威胁"]},
+      "expected": {"action": "等待", "danger": 0, "use_item": false}
+    },
+    {
+      "id": "game-010",
+      "suite": "game",
+      "state": {"npc": "猎手", "health": 51, "ammo": 2, "enemy_count": 3, "nearby_allies": 0, "cover": false, "objective": "脱离战斗", "recent_events": ["弹药即将耗尽"]},
+      "expected": {"action": "撤退", "danger": 2, "use_item": false}
+    },
+    {
+      "id": "game-011",
+      "suite": "game",
+      "state": {"npc": "精英兵", "health": 93, "ammo": 40, "enemy_count": 4, "nearby_allies": 6, "cover": false, "objective": "击退入侵", "recent_events": ["己方形成包围"]},
+      "expected": {"action": "进攻", "danger": 1, "use_item": false}
+    },
+    {
+      "id": "game-012",
+      "suite": "game",
+      "state": {"npc": "医护兵", "health": 22, "ammo": 6, "enemy_count": 5, "nearby_allies": 2, "cover": true, "objective": "保护伤员", "recent_events": ["撤离点尚未开启"]},
+      "expected": {"action": "防守", "danger": 2, "use_item": true}
+    },
+    {
+      "id": "game-013",
+      "suite": "game",
+      "state": {"npc": "观察员", "health": 88, "ammo": 10, "enemy_count": 1, "nearby_allies": 0, "cover": true, "objective": "标记目标", "recent_events": ["目标暂未发现我方"]},
+      "expected": {"action": "等待", "danger": 0, "use_item": false}
+    },
+    {
+      "id": "game-014",
+      "suite": "game",
+      "state": {"npc": "重装兵", "health": 60, "ammo": 0, "enemy_count": 3, "nearby_allies": 3, "cover": true, "objective": "阻挡通道", "recent_events": ["主武器卡壳", "援军在附近"]},
+      "expected": {"action": "求援", "danger": 1, "use_item": false}
+    },
+    {
+      "id": "game-015",
+      "suite": "game",
+      "state": {"npc": "突击手", "health": 42, "ammo": 10, "enemy_count": 2, "nearby_allies": 1, "cover": false, "objective": "夺取旗帜", "recent_events": ["双方人数接近", "治疗物品一枚"]},
+      "expected": {"action": "进攻", "danger": 1, "use_item": true}
+    },
+    {
+      "id": "game-016",
+      "suite": "game",
+      "state": {"npc": "守门人", "health": 35, "ammo": 7, "enemy_count": 3, "nearby_allies": 0, "cover": true, "objective": "坚持到计时结束", "recent_events": ["暂时没有撤离路线"]},
+      "expected": {"action": "防守", "danger": 2, "use_item": true}
+    },
+    {
+      "id": "document-001",
+      "suite": "document",
+      "state": {"filename": "年度服务协议.docx", "operation": "归档", "content": "示例公司与供应商约定年度服务范围、付款周期、违约责任和自动续约条款，末尾预留双方签署位置。"},
+      "expected": {"document_type": "合同", "risk": 1, "needs_review": true}
+    },
+    {
+      "id": "document-002",
+      "suite": "document",
+      "state": {"filename": "办公用品票据.pdf", "operation": "报销入账", "content": "电子发票示例：发票号码 DEMO-2026-001，价税合计 128.00 元，开票方和受票方字段齐全。"},
+      "expected": {"document_type": "发票", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-003",
+      "suite": "document",
+      "state": {"filename": "第二季度经营分析.md", "operation": "进入知识库", "content": "报告汇总季度订单量、成本变化和项目进度，给出同比分析、问题列表及下一季度建议。"},
+      "expected": {"document_type": "报告", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-004",
+      "suite": "document",
+      "state": {"filename": "候选人简历.pdf", "operation": "转给招聘团队", "content": "简历包含教育经历、工作经历、项目技能和求职方向，未包含联系方式或真实身份信息。"},
+      "expected": {"document_type": "简历", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-005",
+      "suite": "document",
+      "state": {"filename": "系统维护通知.txt", "operation": "发送给内部成员", "content": "通知：系统将在周六 22:00 至 23:00 维护，期间部分功能不可用，请提前保存工作。"},
+      "expected": {"document_type": "通知", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-006",
+      "suite": "document",
+      "state": {"filename": "采购预算申请单.xlsx", "operation": "提交审批", "content": "申请采购测试设备，列出数量、预算和用途，申请人请求部门负责人审批后执行。"},
+      "expected": {"document_type": "申请单", "risk": 1, "needs_review": true}
+    },
+    {
+      "id": "document-007",
+      "suite": "document",
+      "state": {"filename": "团队春游照片.zip", "operation": "归档", "content": "压缩包包含活动照片和一份路线草图，没有合同、票据、审批字段或正式分析结论。"},
+      "expected": {"document_type": "其他", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-008",
+      "suite": "document",
+      "state": {"filename": "合作条款草案.docx", "operation": "分享给外部合作方", "content": "草案包含独家合作、自动续期、服务级别、违约赔偿和付款条款，尚未完成法务确认。"},
+      "expected": {"document_type": "合同", "risk": 2, "needs_review": true}
+    },
+    {
+      "id": "document-009",
+      "suite": "document",
+      "state": {"filename": "销售月报.pdf", "operation": "内部阅读", "content": "报告展示各渠道线索数量、转化率和本月结论，数据已经汇总为部门级统计。"},
+      "expected": {"document_type": "报告", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-010",
+      "suite": "document",
+      "state": {"filename": "重复票据示例.pdf", "operation": "报销入账", "content": "发票号码 DEMO-2026-009 与系统中已有记录相同，金额字段也相同，等待财务核对。"},
+      "expected": {"document_type": "发票", "risk": 2, "needs_review": true}
+    },
+    {
+      "id": "document-011",
+      "suite": "document",
+      "state": {"filename": "岗位申请材料.pdf", "operation": "招聘初筛", "content": "材料介绍候选人的项目经历、技术栈、教育背景和期望岗位，内容用于招聘评估。"},
+      "expected": {"document_type": "简历", "risk": 1, "needs_review": true}
+    },
+    {
+      "id": "document-012",
+      "suite": "document",
+      "state": {"filename": "权限开通申请单.docx", "operation": "授予系统权限", "content": "申请人为新项目申请只读测试环境权限，写明用途、有效期和审批人，尚未完成审批。"},
+      "expected": {"document_type": "申请单", "risk": 2, "needs_review": true}
+    },
+    {
+      "id": "document-013",
+      "suite": "document",
+      "state": {"filename": "节假日安排通知.md", "operation": "发布到内部知识库", "content": "通知列出节假日值班日期、办公时间和咨询渠道，面向全体内部成员。"},
+      "expected": {"document_type": "通知", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-014",
+      "suite": "document",
+      "state": {"filename": "供应商报价单.xlsx", "operation": "对外转发", "content": "表格列出三种产品、数量、单价、折扣和报价有效期，尚未确认是否可以转发给另一家供应商。"},
+      "expected": {"document_type": "其他", "risk": 2, "needs_review": true}
+    },
+    {
+      "id": "document-015",
+      "suite": "document",
+      "state": {"filename": "项目周报.docx", "operation": "归档", "content": "周报记录已完成事项、阻塞问题、下周计划和负责人，内容仅供项目组内部跟踪。"},
+      "expected": {"document_type": "报告", "risk": 0, "needs_review": false}
+    },
+    {
+      "id": "document-016",
+      "suite": "document",
+      "state": {"filename": "长期采购协议.docx", "operation": "外部分享", "content": "协议涉及长期价格、付款账户、服务违约和自动续约，文件标记为限制外发且缺少最终签章。"},
+      "expected": {"document_type": "合同", "risk": 2, "needs_review": true}
+    }
+  ]
+}
