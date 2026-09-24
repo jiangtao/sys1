@@ -12,27 +12,27 @@
 
 点击候选分支中的后续着法，可以在棋盘上预览变化，实际棋局不会改变。「选择残局」提供难度筛选、棋盘预览和人机／自对弈入口。10 个实战型残局由引擎自弈采样，保留 15—22 枚棋子和双方进攻子力；来源轨迹和验证数据见 [残局分析](validation/endgames-analysis.md)，新版验收见 [自对弈验收](validation/selfplay-checks.md)。
 
-先确保已有 Laya 服务处于就绪状态：
+先按[安装说明](../docs/setup.md)准备 Python 环境和所选模型。默认选择 Laya 时，从仓库根目录先启动它：
 
 ```sh
-cd laya-zh
-./start.sh
+(cd laya-zh && ./start.sh)
 ```
 
-再启动象棋服务：
+再启动象棋；只使用 Jev 或 Kev 时不必启动 Laya 服务，但所选模型仍须就绪：
 
 ```sh
-cd xiangqi
-./start.sh
+(cd xiangqi && ./start.sh)
 ```
+
+打开 <http://127.0.0.1:8768>。用 `curl http://127.0.0.1:8768/api/health` 检查 JSON 中 `engine.status` 和所选模型的 `laya`、`jev` 或 `kev` 状态；HTTP 200 只表示游戏服务可访问，不保证三种模型都就绪。Laya、Jev、Kev 的模型准备和服务地址见[安装说明](../docs/setup.md)。
 
 Jev 与 [贪吃蛇项目](../snake/README.md)共用**同一份密钥配置**：进程环境变量 `TYPESAFE_API_KEY` 优先，否则读取仓库外 `~/.config/jev-snake/typesafe_api_key`。不需要、也不应在象棋目录复制密钥。未配置时 Jev 新局会明确拒绝创建，Laya / Kev 棋局仍可使用。Jev 请求使用 `jev-latest`，远程网络耗时不计入 Pikafish 的搜索秒数。Kev 请求使用 `kev-latest`，只访问本机服务，不发送 API 密钥；`GET /api/health` 会探测 Kev 的 `/v1/models`，并校验已加载的 run 为 `jaredpalmer/kev-0.8b@...`。外部 Kev 服务的部署命令及 `XIANGQI_LAYA_URL`、`XIANGQI_KEV_URL` 配置见[安装说明](../docs/setup.md)。
 `GET /api/health` 中的 Jev `ready` 只表示本机依赖与密钥已配置，不检测远端连通性；Kev `ready` 会实际探测本机服务并核对已加载模型。真正的网络或推理失败会在本步日志和接口错误中说明。
 
-`start.sh` 会把 PID 和日志写入本目录的 `runtime/`，重复执行会复用已运行的进程；默认优先使用相邻 `laya-zh/.venv` 的 Python（包含 Jev 客户端所需的 `httpx`），缺失时回退到系统 Python。缺少官方引擎时，`server.py` 会通过 GitHub Releases API 查找最新官方 `.7z` 包并解压；已存在的引擎不会重复下载。也可以直接运行前台服务；需要 Jev 时请选择有 `httpx` 的 Python：
+`start.sh` 在后台启动，把 PID 和日志写入本目录的 `runtime/`；重复执行会复用已运行的进程。它优先使用相邻 `laya-zh/.venv` 的 Python（含 Jev 所需的 `httpx`），缺失时回退到系统 Python。缺少官方引擎时，`server.py` 会通过 GitHub Releases API 查找最新官方 `.7z` 包并解压。若想用 `Ctrl+C` 停止，可在 `xiangqi/` 目录前台运行：
 
 ```sh
-python3 server.py --host 127.0.0.1 --port 8768
+../laya-zh/.venv/bin/python server.py --host 127.0.0.1 --port 8768
 ```
 
 `--no-download` 只用于离线检查，缺少引擎时会返回明确的 503。
@@ -85,11 +85,22 @@ duel 模式用 `model` 指定红方、`opponentModel` 指定黑方，两个值�
 
 Pikafish 对 Rule60 计数 120 的直接查询会主动退出。本服务在合法走法与将军检查中仅将临时查询计数限制到 119，真实棋局计数、棋谱和裁决不变；达到上限时按既定优先级完成终局判断，不再继续搜索。引擎异常会记录命令、退出码和原始输出；落子或悔棋刷新失败会还原棋局状态，并返回独立的失败日志。对应复现及验收见 [Rule60 边界修复](validation/rule60-fix.md)。
 
-无需安装第三方 Python 包即可运行静态单元检查：
+完成依赖安装后，从仓库根目录运行单元检查：
 
 ```sh
-python3 -m unittest discover -s . -p 'test*.py' -v
-python3 -m py_compile engine.py server.py
+cd xiangqi
+../laya-zh/.venv/bin/python -m unittest discover -s . -p 'test*.py' -v
+../laya-zh/.venv/bin/python -m py_compile engine.py server.py
+node --check web/app.js
 ```
 
-引擎联机测试需要本机 arm64 官方 Pikafish 和 Laya 服务已就绪；没有它们时，服务会报告 503，而不会伪造模型决策。
+`node --check` 需要 Node.js。单元测试使用 fake/mock provider，不要求正在运行的 Laya 或 Kev 服务；真实模型对局需要兼容的 Pikafish 和所选模型就绪。
+
+要复测已保存的 101 个固定局面，先分别启动 Laya 或 Kev，再从 `xiangqi/` 运行对应命令。结果写入被 Git 忽略的 `runtime/`；Kev 脚本不会覆盖已有输出，重跑时请换文件名。固定局面命中率不等于完整对弈棋力。
+
+```sh
+../laya-zh/.venv/bin/python evaluation/compare_factors.py --sample all --output runtime/laya-recheck.json
+../laya-zh/.venv/bin/python evaluation/compare_kev.py --sample all --output runtime/kev-recheck.json
+```
+
+已跑数据及指标定义见 [Laya 自对弈与 Kev 固定局面结果](../docs/results/xiangqi-2026-09-23.md)。

@@ -4,13 +4,14 @@
 
 ## 启动
 
-先按[安装说明](../docs/setup.md)部署同级的 `laya-zh/`，然后从本目录运行：
+先按[安装说明](../docs/setup.md)部署同级的 `laya-zh/`。从仓库根目录启动：
 
 ```sh
+cd snake
 ./start.sh
 ```
 
-打开 <http://127.0.0.1:8766>。脚本使用 `../laya-zh/.venv/bin/python`，若默认的 Laya 服务尚未运行，会尝试自动启动它。终端按 `Ctrl+C` 停止本次脚本启动的服务。网页和 API 仅监听本机。
+打开 <http://127.0.0.1:8766>，在网页“决策模型”里选 Laya、Jev 或 Kev；切换后会以相同 seed 新建一局。在另一个终端按所选模型检查服务：`curl 'http://127.0.0.1:8766/api/health?model=kev'`，将 `kev` 换成 `laya` 或 `jev` 即可。脚本使用 `../laya-zh/.venv/bin/python`，若默认的 Laya 服务尚未运行，会尝试自动启动它。终端按 `Ctrl+C` 停止本次脚本启动的服务。网页和 API 仅监听本机。
 
 ## 模型接入
 
@@ -31,9 +32,14 @@
 
 ## 检查
 
+从仓库根目录、在另一个终端运行：
+
 ```sh
+cd snake
 ../laya-zh/.venv/bin/python -m unittest discover -s . -p 'test*.py'
 node --check web/app.js
 ```
 
-部分测试需要 `../laya-zh/model/tokenizer/`；完整运行还需要 Laya 服务。模型和规划器各自的贡献应根据每步的 `modelCalled`、`modelChoice`、`executed` 与 `executionSource` 字段判断，通关不代表模型每步都选对。
+测试使用 `laya-zh/.venv` 中的依赖；涉及输入预算的测试还需要 `../laya-zh/model/tokenizer/`。单元测试不要求正在运行的 Laya 服务，真实模型对局才需要对应服务。`node --check` 需要本机安装 Node.js。模型和规划器各自的贡献应根据每步的 `modelCalled`、`modelChoice`、`executed` 与 `executionSource` 字段判断，通关不代表模型每步都选对。
+
+已跑批次的数字与限制见 [Laya/Jev 十种子结果](../docs/results/snake-2026-09-23.md)和 [Kev-0.8B 补测](../docs/results/kev-0.8b-2026-09-24.md)。

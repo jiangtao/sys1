@@ -1,18 +1,6 @@
 # 安装与模型接入
 
-返回 [项目首页](../README.md)。本页集中记录两个游戏、Laya、Kev 和 Jev 的运行步骤。
-
-两个本地网页游戏：十关贪吃蛇和中国象棋。两个游戏都可选 Laya、Jev 或 Kev 作决策；游戏规则、候选动作和安全校验由各自的游戏服务负责，模型只在这些候选中提出选择。
-
-## 仓库结构
-
-| 目录 | 用途 |
-| --- | --- |
-| [`snake/`](../snake/) | 贪吃蛇网页、服务、规划器和测试；端口 `8766` |
-| [`xiangqi/`](../xiangqi/) | 象棋网页、服务、残局和 Pikafish 引擎；端口 `8768` |
-| [`laya-zh/`](../laya-zh/) | 本项目的 Laya HTTP 服务适配代码；端口 `8765` |
-
-`laya-zh/` 是服务封装，**不是 Laya 模型的训练源码或权重**。Kev 的实现由独立的 [jaredpalmer/kev](https://github.com/jaredpalmer/kev) 仓库维护；本仓库只保留两个游戏的 Kev 客户端。两种模型的权重都不在 Git 中。
+返回 [项目首页](../README.md)。本页只记录共享的模型与依赖配置；游戏启动和测试分别见 [贪吃蛇](../snake/README.md)、[象棋](../xiangqi/README.md)。`laya-zh/` 是本地服务封装，Kev 实现来自独立的 [jaredpalmer/kev](https://github.com/jaredpalmer/kev) 仓库；两种模型的权重都不在 Git 中。
 
 ## 环境要求
 
@@ -20,7 +8,7 @@
 - Python 3.12 和 [`uv`](https://docs.astral.sh/uv/)；安装依赖及首次下载模型时需要网络。
 - Laya 是默认决策模型。贪吃蛇的输入预算检查也使用 Laya tokenizer，因此使用 Jev 或 Kev 玩贪吃蛇时仍需部署 `laya-zh/model/`。
 
-## 快速开始：Laya 与两个游戏
+## Laya 模型与服务
 
 从仓库根目录执行。以下命令将 Laya 模型固定到已验证的 Hugging Face revision，下载到被 Git 忽略的 `laya-zh/model/`：
 
@@ -37,21 +25,7 @@ cd ..
 curl http://127.0.0.1:8765/health
 ```
 
-服务报告 `"status":"ready"` 后，在另外的终端从仓库根目录启动游戏：
-
-```sh
-cd snake
-./start.sh
-# http://127.0.0.1:8766
-```
-
-```sh
-cd xiangqi
-./start.sh
-# http://127.0.0.1:8768
-```
-
-`snake/start.sh` 会在默认地址没有 Laya 服务时尝试启动它；`xiangqi/start.sh` 需要先启动 Laya。服务只绑定本机回环地址。游戏细节见 [贪吃蛇说明](../snake/README.md)和[象棋说明](../xiangqi/README.md)。
+服务报告 `"status":"ready"` 后，按对应游戏目录的 README 启动。服务只绑定本机回环地址。
 
 ## 可选模型
 
@@ -72,7 +46,7 @@ cd xiangqi
 
 ### 部署 Kev
 
-Kev 源码放在本仓库外的相邻目录。以下版本与本项目当前客户端验证过的 Kev-0.8B 配置一致；权重会下载到 Kev 目录的 `runtime/hf/`，不会进入本仓库。
+从本仓库根目录执行；Kev 源码放在仓库外的相邻目录。以下版本与本项目当前客户端验证过的 Kev-0.8B 配置一致；权重会下载到 Kev 目录的 `runtime/hf/`，不会进入本仓库。
 
 ```sh
 git clone https://github.com/jaredpalmer/kev.git ../kev
@@ -92,17 +66,3 @@ Jev 只在选择它时需要密钥。不要把密钥写进代码、Git、游戏 
 ## 数据与许可
 
 Git 忽略 Laya/Kev 权重、虚拟环境、运行日志与对局存档。**克隆本仓库不会恢复原机器上的对局**；原机器的存档仍在各游戏的 `runtime/` 目录。象棋随仓库提供 Mac 版 Pikafish、NNUE 棋力文件及其[许可证](../xiangqi/engine/NNUE-License.md)；使用前请阅读许可证。
-
-## 检查
-
-部署 Laya 依赖后，可从各游戏目录运行：
-
-```sh
-cd snake
-../laya-zh/.venv/bin/python -m unittest discover -s . -p 'test*.py'
-```
-
-```sh
-cd xiangqi
-../laya-zh/.venv/bin/python -m unittest discover -s . -p 'test*.py'
-```
